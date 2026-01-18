@@ -3,38 +3,238 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>คู่มือผู้ปฏิบัติงานเลือกตั้ง 2569</title>
+    <title>คู่มือผู้ปฏิบัติงานเลือกตั้ง 2569 - เขตคลองเตย</title>
     <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;700&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="css/style.css">
-</head>
-<body class="bg-slate-50 text-slate-900">
+    <style>
+        :root { font-size: 100%; } /* 1rem = 16px */
+        body { 
+            font-family: 'Sarabun', sans-serif; 
+            -webkit-tap-highlight-color: transparent;
+            scroll-behavior: smooth;
+        }
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+        
+        .office-header {
+            background: linear-gradient(135deg, #1e3a8a 0%, #1e40af 100%);
+        }
 
-    <header class="bg-blue-900 text-white sticky top-0 z-50 shadow-lg">
-        <div class="p-4 max-w-4xl mx-auto">
-            <h1 class="text-xl font-bold text-center">คู่มือผู้ปฏิบัติงานเลือกตั้ง</h1>
+        .phase-btn.active {
+            background-color: #facc15;
+            color: #1e3a8a;
+            font-weight: bold;
+            border-bottom: 4px solid #1e3a8a;
+        }
+
+        .instruction-card {
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            background: white;
+            border-radius: 1rem;
+            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);
+        }
+
+        @keyframes fadeIn { 
+            from { opacity:0; transform: translateY(10px); } 
+            to { opacity:1; transform: translateY(0); } 
+        }
+        .animate-fade { animation: fadeIn 0.3s ease-out; }
+        
+        /* สไตล์พิเศษสำหรับหัวข้อใน Checklist */
+        .step-header {
+            color: #1e3a8a;
+            font-weight: bold;
+            margin-top: 1rem;
+            margin-bottom: 0.5rem;
+            display: block;
+            border-left: 4px solid #facc15;
+            padding-left: 0.5rem;
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-900 pb-32">
+
+    <header class="office-header text-white sticky top-0 z-50 shadow-lg">
+        <div class="p-4 max-w-2xl mx-auto">
+            <h1 class="text-xl font-bold text-center">คู่มือเลือกตั้ง (ฉบับพกพา)</h1>
+            <p class="text-xs text-center text-blue-200 mb-4 tracking-widest uppercase">Klongtoey Computer System Officer</p>
             
-            <div class="mt-4">
-                <label for="roleSelector" class="block text-xs text-blue-200 mb-1">เลือกตำแหน่งของคุณ:</label>
-                <select id="roleSelector" class="w-full p-3 rounded-lg bg-blue-800 border border-blue-600 text-white focus:outline-none focus:ring-2 focus:ring-yellow-400">
+            <div class="space-y-3">
+                <div>
+                    <label class="text-[0.7rem] text-blue-100 ml-1 mb-1 block">1. เลือกวันที่ปฏิบัติหน้าที่:</label>
+                    <select id="dateSelector" onchange="initRoles()" class="w-full p-3 rounded-lg bg-blue-800 text-white border border-blue-600 focus:ring-2 focus:ring-yellow-400 outline-none text-sm font-medium">
+                        <option value="2026-02-01">วันที่ 1 กุมภาพันธ์ 2569 (เลือกตั้งล่วงหน้า)</option>
+                        <option value="2026-02-08" selected>วันที่ 8 กุมภาพันธ์ 2569 (เลือกตั้งทั่วไปและออกเสียงประชามติ)</option>
                     </select>
+                </div>
+                <div>
+                    <label class="text-[0.7rem] text-blue-100 ml-1 mb-1 block">2. เลือกตำแหน่งของท่าน:</label>
+                    <select id="roleSelector" onchange="updateContent()" class="w-full p-3 rounded-lg bg-white text-blue-900 font-bold border-none shadow-lg text-sm">
+                        </select>
+                </div>
             </div>
         </div>
-
-        <nav id="phaseNav" class="bg-blue-800 flex overflow-x-auto border-t border-blue-700 no-scrollbar">
+        <nav id="phaseNav" class="bg-blue-900 flex overflow-x-auto no-scrollbar border-t border-blue-800 shadow-inner">
             </nav>
     </header>
 
-    <main class="max-w-4xl mx-auto p-4 pb-20">
+    <main class="max-w-2xl mx-auto p-4">
         <div id="contentDisplay">
             </div>
     </main>
 
-    <footer class="fixed bottom-0 w-full bg-white border-t p-3 flex justify-around shadow-inner md:max-w-4xl">
-        <button class="text-red-600 font-bold text-sm">🆘 รายงานปัญหา/เคสพิเศษ</button>
-        <button class="text-blue-600 font-bold text-sm">📞 เบอร์โทรสายด่วน</button>
+    <footer class="fixed bottom-0 w-full bg-white border-t p-2 flex justify-around items-center shadow-[0_-2px_15px_rgba(0,0,0,0.1)] max-w-2xl left-1/2 -translate-x-1/2 z-50">
+        <a href="tel:1444" class="flex-1 text-red-600 font-bold text-[0.7rem] sm:text-sm flex flex-col items-center gap-1 border-r border-gray-100">
+            <span>🆘 สายด่วน 1444</span>
+        </a>
+        
+        <a href="https://drive.google.com/file/d/1axYlvPlJ9aaorRUStjdeEMKZr2CDdYob/view?usp=sharing" target="_blank" class="flex-1 text-emerald-600 font-bold text-[0.7rem] sm:text-sm flex flex-col items-center gap-1 border-r border-gray-100 text-center">
+            <span>📄 คู่มือฉบับเต็ม (PDF)</span>
+        </a>
+        
+        <button onclick="window.scrollTo({top:0, behavior:'smooth'})" class="flex-1 text-blue-600 font-bold text-[0.7rem] sm:text-sm flex flex-col items-center gap-1 text-center">
+            <span>⬆️ กลับด้านบน</span>
+        </button>
     </footer>
 
-    <script type="module" src="js/app.js"></script>
+    <script>
+        const ELECTION_DATA = {
+            "2026-02-01": {
+                roles: {
+                    "chairperson": { name: "ประธานหน่วยเลือกตั้ง", phases: [{ title: "เฟส 1", desc: "รอกำหนดรายละเอียด", steps: ["ข้อมูลกำลังจัดเตรียม"], images: [] }] },
+                    "committee": { name: "กรรมการประจำหน่วยเลือกตั้ง", phases: [] },
+                    "security": { name: "เจ้าหน้าที่รักษาความปลอดภัยประจำที่เลือกตั้ง", phases: [] }
+                }
+            },
+            "2026-02-08": {
+                roles: {
+                    "chair_both": {
+                        name: "ประธานหน่วยเลือกตั้งและหน่วยออกเสียง",
+                        phases: [
+                            {
+                                title: "Phase 1: รับวัสดุ อุปกรณ์ และเตรียมความพร้อม",
+                                desc: "ขั้นตอนการตรวจรับพัสดุและการเตรียมสถานที่ปฏิบัติงาน",
+                                steps: [
+                                    "<span class='step-header'>1. การตรวจรับพัสดุและตรวจสอบความถูกต้อง</span>",
+                                    "ต้องมาพร้อมกับ กปน. (ไม่น้อยกว่า 5 คน) + กปส. (ไม่น้อยกว่า 3 คน) และ รปภ.",
+                                    "<b>ตรวจสอบหีบบัตร:</b> เลือกตั้ง (2 ใบ) และ หีบบัตรออกเสียง (1 ใบ)",
+                                    "<b>ตรวจสอบบัตร:</b> บัตรเลือกตั้ง (2 ประเภท) และ บัตรออกเสียง (จำนวนต้องไม่น้อยกว่าจำนวนผู้มีสิทธิ)",
+                                    "หากไม่ครบถ้วน: แจ้ง กกต.เขต บันทึกในบัญชีการรับมอบ และลงลายมือชื่อที่ปกหน้าบัตรระบุส่วนที่ขาด",
+                                    "<b>ตรวจสอบบัญชีรายชื่อ:</b> ส.ส. 1/3 และ อ.ส. 2/3 อย่างละ 2 ชุด (ชุดมีปกใช้ตรวจสอบ / ชุดไม่มีปกติดหน้าหน่วย)",
+                                    "<b>ตรวจสอบแบบพิมพ์:</b> สมุดแบบพิมพ์ประจำหน่วย, แบบขีดคะแนนเลือกตั้ง/ออกเสียง",
+                                    "<b>ตรวจสอบตะกร้าแยกบัตร:</b> สำหรับ ส.ส. (6 ใบ) และ สำหรับบัตรออกเสียง (2 ใบ)",
+                                    "<b>ตรวจสอบวัสดุอื่นๆ:</b> คูหา (ไม่น้อยกว่า 5), สายรัดหีบ, ถุงวัสดุใส (10 ถุง), ถุงหูหิ้ว (6 ถุง), ป้ายต่างๆ",
+                                    "<b>นาฬิกา:</b> ให้ประธานฯ หรือ กปน./กปส. จัดเตรียมมาเอง",
+                                    
+                                    "<span class='step-header'>2. เตรียมความพร้อมสถานที่ (06.00 น.)</span>",
+                                    "จัดวาง โต๊ะ เก้าอี้ คูหา และวัสดุอุปกรณ์ให้สอดคล้องกับการปฏิบัติหน้าที่",
+                                    "ตรวจสอบป้ายหาเสียง: หากพบในบริเวณที่เลือกตั้งให้นำออกและเก็บรักษาไว้",
+                                    "ติดประกาศ: นำคำสั่งและประกาศต่างๆ ไปปิดที่ป้ายประชาสัมพันธ์หน้าหน่วย",
+                                    "ตรวจสอบหีบบัตรอีกครั้ง: ดูสายรัดและสภาพหีบ หากชำรุดบันทึกใน ส.ส. 5/6 หรือ อ.ส. 4/2",
+                                    
+                                    "<span class='step-header'>3. ตรวจนับบัตรและจัดทำประกาศ (07.30 น.)</span>",
+                                    "กปน. และ กปส. เปิดหีบเพื่อนำบัตรออกมาตรวจนับจำนวนจริง",
+                                    "จัดทำประกาศ <b>ส.ส. 5/5</b> (จำนวนบัตรเลือกตั้งก่อนลงคะแนน) จำนวน 3 ชุด",
+                                    "จัดทำประกาศ <b>อ.ส. 4/1</b> (จำนวนบัตรออกเสียงก่อนลงคะแนน) จำนวน 3 ชุด",
+                                    "การกระจายประกาศ: (1) ติดหน้าหน่วยก่อน 08.00 น. (2) ส่ง กกต.เขต (3) เก็บเป็นหลักฐาน"
+                                ],
+                                images: ["images/phase1/layout.jpg", "images/phase1/forms.jpg"]
+                            },
+                            { title: "Phase 2: เปิดคูหาและลงคะแนน", desc: "08.00 - 17.00 น.", steps: ["รอกำหนดรายละเอียดส่วนถัดไป"], images: [] }
+                        ]
+                    },
+                    "comm_elect": { name: "กรรมการประจำหน่วยเลือกตั้ง", phases: [] },
+                    "comm_ref": { name: "กรรมการประจำหน่วยออกเสียง", phases: [] },
+                    "security_both": { name: "เจ้าหน้าที่รักษาความปลอดภัยประจำที่เลือกตั้ง/ที่ออกเสียง", phases: [] }
+                }
+            }
+        };
+
+        function initRoles() {
+            const date = document.getElementById('dateSelector').value;
+            const roleSel = document.getElementById('roleSelector');
+            const roles = ELECTION_DATA[date].roles;
+            
+            let html = "";
+            for (let key in roles) {
+                html += `<option value="${key}">${roles[key].name}</option>`;
+            }
+            roleSel.innerHTML = html;
+            updateContent();
+        }
+
+        function updateContent() {
+            const date = document.getElementById('dateSelector').value;
+            const roleKey = document.getElementById('roleSelector').value;
+            renderPhases(date, roleKey);
+            renderContent(date, roleKey, 0);
+        }
+
+        function renderPhases(date, roleKey) {
+            const nav = document.getElementById('phaseNav');
+            const role = ELECTION_DATA[date].roles[roleKey];
+            
+            if (!role || !role.phases || role.phases.length === 0) {
+                nav.innerHTML = "<p class='text-blue-300 p-4 text-xs italic'>ยังไม่มีข้อมูลเฟสสำหรับตำแหน่งนี้</p>";
+                return;
+            }
+
+            nav.innerHTML = role.phases.map((p, i) => `
+                <button onclick="renderContent('${date}', '${roleKey}', ${i}, this)" class="phase-btn px-6 py-4 whitespace-nowrap text-[0.75rem] sm:text-sm border-r border-blue-800 min-w-[120px] transition-all ${i === 0 ? 'active' : ''}">
+                    ${p.title.split(':')[0]}
+                </button>
+            `).join('');
+        }
+
+        function renderContent(date, roleKey, index, btn) {
+            if(btn) {
+                document.querySelectorAll('.phase-btn').forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+            }
+            const phase = ELECTION_DATA[date].roles[roleKey].phases[index];
+            const display = document.getElementById('contentDisplay');
+
+            if (!phase) {
+                display.innerHTML = `<div class="p-8 text-center text-gray-400 italic">ขออภัย ยังไม่มีข้อมูลในส่วนนี้</div>`;
+                return;
+            }
+
+            const stepsHtml = phase.steps.map(s => {
+                if (s.includes('step-header') || s.includes('<hr') || s.includes('<b')) {
+                    return `<div class="mt-2">${s}</div>`;
+                }
+                return `<li class="flex items-start gap-2 mb-3 leading-relaxed">
+                            <span class="text-blue-500 mt-1">●</span> 
+                            <span>${s}</span>
+                        </li>`;
+            }).join('');
+            
+            let imagesHtml = '';
+            if(phase.images && phase.images.length > 0) {
+                imagesHtml = phase.images.map(img => `
+                    <div class="mt-4 border-2 border-dashed border-gray-200 rounded-xl p-1 bg-gray-50 overflow-hidden">
+                        <img src="${img}" class="w-full h-auto rounded-lg shadow-sm" alt="ตัวอย่าง" 
+                             onerror="this.parentElement.style.display='none';"> 
+                    </div>
+                `).join('');
+            }
+
+            display.innerHTML = `
+                <div class="instruction-card animate-fade">
+                    <h2 class="text-xl font-bold text-blue-900 mb-2 leading-tight">${phase.title}</h2>
+                    <p class="text-gray-500 mb-4 font-medium border-b pb-3 text-[0.85rem]">${phase.desc}</p>
+                    <ul class="text-[1rem] sm:text-lg text-slate-700 mb-2 list-none">
+                        ${stepsHtml}
+                    </ul>
+                    ${imagesHtml ? '<p class="text-sm font-bold text-blue-800 mt-8 mb-2 flex items-center gap-2">📸 ภาพประกอบ/ตัวอย่างแบบฟอร์ม:</p>' + imagesHtml : ''}
+                </div>
+                <p class="text-center text-[0.65rem] text-slate-400 mt-8 mb-4 tracking-widest">--- สิ้นสุดส่วนนี้ ---</p>
+            `;
+            window.scrollTo({top: 0, behavior: 'smooth'});
+        }
+
+        window.onload = () => { initRoles(); };
+    </script>
 </body>
 </html>
