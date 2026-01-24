@@ -5,70 +5,106 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>คู่มือเจ้าพนักงานผู้ดำเนินการเลือกตั้ง 2569</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;600;700&display=swap" rel="stylesheet">
     <style>
-        body { font-family: 'Sarabun', sans-serif; background-color: #f8fafc; }
+        body { font-family: 'Sarabun', sans-serif; background-color: #f1f5f9; }
         .modal-active { overflow: hidden; }
         .glass { background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px); }
+        .card-hover { transition: all 0.2s ease; }
+        .card-hover:hover { transform: translateY(-2px); box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1); }
     </style>
 </head>
-<body>
+<body class="pb-10">
 
-    <header class="bg-gradient-to-r from-blue-900 to-indigo-800 text-white py-12 text-center shadow-xl">
-        <h1 class="text-3xl md:text-4xl font-bold">คู่มือเจ้าพนักงานผู้ดำเนินการเลือกตั้ง</h1>
-        <p class="mt-2 text-blue-200">กปน. กปส. รปภ.</p>
+    <header class="bg-gradient-to-r from-blue-900 to-indigo-800 text-white py-10 px-4 text-center shadow-xl mb-8">
+        <h1 class="text-2xl md:text-3xl font-bold">คู่มือเจ้าพนักงานผู้ดำเนินการเลือกตั้ง 2569</h1>
+        <p class="mt-2 text-blue-200">ระบบรวบรวมข้อมูลวิดีโอสาธิตและคู่มือการปฏิบัติงาน</p>
     </header>
 
-    <main class="container mx-auto px-4 py-10 max-w-4xl">
-        
-        <h2 class="text-xl font-bold mb-4 text-slate-700 flex items-center">
-            <span class="bg-red-500 w-2 h-8 rounded mr-3"></span> วิดีโอสาธิตการปฏิบัติงาน
-        </h2>
-        <div class="grid gap-4 mb-10">
-            <button onclick="playMedia('video', 'Z6HEXaqEZDg')" class="flex items-center p-4 bg-white border rounded-xl shadow-sm hover:bg-red-50 transition text-left group">
-                <div class="bg-red-100 text-red-600 p-3 rounded-full mr-4 group-hover:bg-red-600 group-hover:text-white transition">▶</div>
-                <div>
-                    <div class="font-bold text-slate-800">วิดีโอสาธิต (เจ้าพนักงานเลือกตั้งและประชามติ)</div>
-                    <div class="text-sm text-slate-500">คลิกเพื่อรับชมผ่านหน้าเว็บ</div>
-                </div>
-            </button>
+    <main class="container mx-auto px-4 max-w-4xl">
 
-            <button onclick="playMedia('video', 'jGwP_ELW1R4')" class="flex items-center p-4 bg-white border rounded-xl shadow-sm hover:bg-red-50 transition text-left group">
-                <div class="bg-red-100 text-red-600 p-3 rounded-full mr-4 group-hover:bg-red-600 group-hover:text-white transition">▶</div>
-                <div>
-                    <div class="font-bold text-slate-800">วิดีโอสาธิต (เลือกตั้งล่วงหน้านอกเขต)</div>
-                    <div class="text-sm text-slate-500">คลิกเพื่อรับชมผ่านหน้าเว็บ</div>
-                </div>
-            </button>
-        </div>
+        <section class="mb-10">
+            <h2 class="text-xl font-bold mb-4 text-orange-600 flex items-center">
+                <span class="bg-orange-600 w-2 h-8 rounded mr-3"></span>
+                สำหรับการปฏิบัติงานวันที่ 1 กุมภาพันธ์ 2569
+            </h2>
+            <div class="grid gap-3">
+                <button onclick="playMedia('video', 'jGwP_ELW1R4')" class="flex items-center p-4 bg-white border rounded-xl shadow-sm card-hover text-left group">
+                    <div class="bg-red-100 text-red-600 p-3 rounded-full mr-4 group-hover:bg-red-600 group-hover:text-white transition">▶</div>
+                    <div>
+                        <div class="font-bold text-slate-800 leading-tight">Video สาธิตการปฏิบัติงาน สำหรับเจ้าพนักงานผู้ดำเนินการเลือกตั้งล่วงหน้านอกเขต</div>
+                    </div>
+                </button>
 
-        <h2 class="text-xl font-bold mb-4 text-slate-700 flex items-center">
-            <span class="bg-blue-600 w-2 h-8 rounded mr-3"></span> คู่มือปฏิบัติงาน (PDF)
-        </h2>
-        <div class="grid gap-3">
-            <button onclick="playMedia('pdf', '1XoS0kD69xCgWugAywhSxuxrbJw_qGJ6c')" class="p-4 bg-white border rounded-xl shadow-sm hover:border-blue-500 transition text-left flex justify-between items-center">
-                <span class="text-slate-700">1. คู่มือปฏิบัติงานเลือกตั้งและประชามติ</span>
-                <span class="text-blue-600 font-bold">เปิดอ่าน</span>
-            </button>
-            <button onclick="playMedia('pdf', '1aSWUIFGxQjNXRB7p2A39sL_hjyBfORyE')" class="p-4 bg-white border rounded-xl shadow-sm hover:border-blue-500 transition text-left flex justify-between items-center">
-                <span class="text-slate-700">2. ขั้นตอนการปฏิบัติสำหรับเจ้าพนักงาน</span>
-                <span class="text-blue-600 font-bold">เปิดอ่าน</span>
-            </button>
-            <button onclick="playMedia('pdf', '1RLgeXhAZ3RbkMoshsy_Inkyxg1UJc_nK')" class="p-4 bg-white border rounded-xl shadow-sm hover:border-blue-500 transition text-left flex justify-between items-center">
-                <span class="text-slate-700">3. กรณีเพิ่มชื่อท้ายหน่วย</span>
-                <span class="text-blue-600 font-bold">เปิดอ่าน</span>
-            </button>
-        </div>
+                <button onclick="playMedia('pdf', '1LJzjZTS9i4aZpNR5wb5fcbS7PuE1Hygg')" class="p-4 bg-white border rounded-xl shadow-sm card-hover text-left flex justify-between items-center group">
+                    <span class="text-slate-700 font-medium">คู่มือการปฏิบัติงานการออกเสียงลงคะแนนเลือกตั้งสมาชิกสภาผู้แทนราษฎร ณ ที่เลือกตั้งกลางนอกเขตเลือกตั้ง และนอกเขตออกเสียงประชามติ</span>
+                    <span class="ml-4 text-blue-600 font-bold shrink-0">เปิดอ่าน</span>
+                </button>
+
+                <button onclick="playMedia('pdf', '1mABikuUnkLT_LvagEKfqcWoc02sUcPng')" class="p-4 bg-white border rounded-xl shadow-sm card-hover text-left flex justify-between items-center group">
+                    <span class="text-slate-700 font-medium">คู่มือการปฏิบัติงานการออกเสียงลงคะแนนเลือกตั้งสมาชิกสภาผู้แทนราษฎร ณ ที่เลือกตั้งกลางสำหรับผู้พิการหรือทุพลภาพ ผู้สูงอายุ</span>
+                    <span class="ml-4 text-blue-600 font-bold shrink-0">เปิดอ่าน</span>
+                </button>
+
+                <button onclick="playMedia('pdf', '1ZUpRb1CQdMgMY4WzdAo-FVr2Cs12RanI')" class="p-4 bg-white border border-blue-200 rounded-xl shadow-sm card-hover text-left flex justify-between items-center bg-blue-50">
+                    <span class="text-blue-800 font-bold">คำสั่งแต่งตั้ง กปน. รปภ. (ผู้ปฏิบัติงานวันที่ 1 ก.พ. 69)</span>
+                    <span class="ml-4 text-blue-600 font-bold shrink-0">เปิดดู</span>
+                </button>
+            </div>
+        </section>
+
+        <section class="mb-10">
+            <h2 class="text-xl font-bold mb-4 text-blue-700 flex items-center">
+                <span class="bg-blue-700 w-2 h-8 rounded mr-3"></span>
+                สำหรับการปฏิบัติงานวันที่ 8 กุมภาพันธ์ 2569
+            </h2>
+            <div class="grid gap-3">
+                <button onclick="playMedia('video', 'Z6HEXaqEZDg')" class="flex items-center p-4 bg-white border rounded-xl shadow-sm card-hover text-left group">
+                    <div class="bg-red-100 text-red-600 p-3 rounded-full mr-4 group-hover:bg-red-600 group-hover:text-white transition">▶</div>
+                    <div>
+                        <div class="font-bold text-slate-800 leading-tight">Video สาธิตการปฏิบัติงาน สำหรับเจ้าพนักงานผู้ดำเนินการเลือกตั้ง และเจ้าพนักงานผู้ดำเนินการออกเสียงประชามติ</div>
+                    </div>
+                </button>
+
+                <button onclick="playMedia('pdf', '1XoS0kD69xCgWugAywhSxuxrbJw_qGJ6c')" class="p-4 bg-white border rounded-xl shadow-sm card-hover text-left flex justify-between items-center group">
+                    <span class="text-slate-700 font-medium">คู่มือปฏิบัติงาน สำหรับเจ้าพนักงานผู้ดำเนินการเลือกตั้ง และเจ้าพนักงานผู้ดำเนินการออกเสียงประชามติ</span>
+                    <span class="ml-4 text-blue-600 font-bold shrink-0">เปิดอ่าน</span>
+                </button>
+
+                <button onclick="playMedia('pdf', '1aSWUIFGxQjNXRB7p2A39sL_hjyBfORyE')" class="p-4 bg-white border rounded-xl shadow-sm card-hover text-left flex justify-between items-center group">
+                    <span class="text-slate-700 font-medium">ขั้้นตอนการปฏิบัติสำหรับเจ้าพนักงานผู้ดำเนินการเลือกตั้งและเจ้าพนักงานผู้ดำเนินการประจำหน่วยออกเสียงประชามติ</span>
+                    <span class="ml-4 text-blue-600 font-bold shrink-0">เปิดอ่าน</span>
+                </button>
+
+                <div class="p-4 bg-gray-100 border border-dashed border-gray-400 rounded-xl flex justify-between items-center text-gray-500">
+                    <span class="font-medium text-sm">คำสั่งแต่งตั้ง กปน. กปส. รปภ. (ปฏิบัติงานวันที่ 8 ก.พ. 69)</span>
+                    <span class="italic text-xs text-red-500 font-bold underline">รอไฟล์</span>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2 class="text-xl font-bold mb-4 text-slate-700 flex items-center">
+                <span class="bg-slate-700 w-2 h-8 rounded mr-3"></span>
+                กรณีพิเศษ
+            </h2>
+            <div class="grid gap-3">
+                <button onclick="playMedia('pdf', '1RLgeXhAZ3RbkMoshsy_Inkyxg1UJc_nK')" class="p-4 bg-white border rounded-xl shadow-sm card-hover text-left flex justify-between items-center group border-l-4 border-l-red-500">
+                    <span class="text-slate-700 font-bold italic">กรณีเพิ่มชื่อท้ายหน่วย</span>
+                    <span class="ml-4 text-blue-600 font-bold shrink-0">เปิดอ่าน</span>
+                </button>
+            </div>
+        </section>
 
     </main>
 
     <div id="mediaModal" class="fixed inset-0 z-50 hidden glass flex flex-col">
         <div class="p-4 flex justify-between items-center bg-white shadow-md">
-            <span id="modalTitle" class="font-bold text-slate-700">กำลังแสดงเนื้อหา...</span>
-            <button onclick="closeMedia()" class="bg-red-600 text-white px-6 py-2 rounded-lg font-bold hover:bg-red-700 transition">ปิดหน้าต่าง</button>
+            <span id="modalTitle" class="font-bold text-slate-700 truncate mr-4">กำลังแสดงเนื้อหา...</span>
+            <button onclick="closeMedia()" class="bg-red-600 text-white px-5 py-2 rounded-lg font-bold hover:bg-red-700 transition shrink-0 shadow-lg">ปิดหน้าต่าง</button>
         </div>
-        <div class="flex-grow bg-black flex items-center justify-center p-2">
-            <iframe id="mainViewer" src="" class="w-full h-full max-w-6xl rounded-lg shadow-2xl bg-white" frameborder="0" allow="autoplay; encrypted-media; fullscreen" allowfullscreen></iframe>
+        <div class="flex-grow bg-slate-800 flex items-center justify-center p-2">
+            <iframe id="mainViewer" src="" class="w-full h-full max-w-6xl rounded shadow-2xl bg-white" frameborder="0" allow="autoplay; encrypted-media; fullscreen" allowfullscreen></iframe>
         </div>
     </div>
 
@@ -80,11 +116,12 @@
             let url = "";
 
             if (type === 'video') {
-                title.innerText = "วิดีโอสาธิตการปฏิบัติงาน";
-                // ใช้ youtube-nocookie เพื่อลดโอกาสเกิด Error 153 และตัด parameter ที่ไม่จำเป็นออก
-                url = `https://www.youtube-nocookie.com/embed/${id}?autoplay=1&rel=0&showinfo=0`;
+                title.innerText = "Video สาธิตการปฏิบัติงาน";
+                // ใช้ youtube-nocookie เพื่อลดปัญหาการโหลด
+                url = `https://www.youtube-nocookie.com/embed/${id}?autoplay=1&rel=0`;
             } else {
-                title.innerText = "คู่มือการปฏิบัติงาน (PDF)";
+                title.innerText = "คู่มือการปฏิบัติงาน (เอกสาร PDF)";
+                // ใช้ preview mode ของ Google Drive
                 url = `https://drive.google.com/file/d/${id}/preview`;
             }
 
@@ -97,11 +134,9 @@
             const modal = document.getElementById('mediaModal');
             const viewer = document.getElementById('mainViewer');
             modal.classList.add('hidden');
-            viewer.src = ""; // เคลียร์ src เพื่อหยุดการทำงานทั้งหมด
+            viewer.src = "";
             document.body.classList.remove('modal-active');
         }
     </script>
 </body>
 </html>
-
-
