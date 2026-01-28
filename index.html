@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>คู่มือ กปน. & โปรแกรมช่วยคำนวณ สำนักงานเขตคลองเตย</title>
+    <title>คู่มือ กปน. & โปรแกรมช่วยคำนวณ 2569</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -11,27 +11,35 @@
     <style>
         body { font-family: 'Sarabun', sans-serif; background-color: #f1f5f9; -webkit-tap-highlight-color: transparent; }
         
-        /* General Utils */
+        /* Utils */
         .glass { background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px); }
         .card-hover { transition: all 0.2s ease; }
         .card-hover:hover { transform: translateY(-2px); box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1); }
         .bg-gradient-calc { background: linear-gradient(135deg, #0f766e 0%, #14b8a6 100%); }
-        .bg-gradient-518 { background: linear-gradient(135deg, #4f46e5 0%, #6366f1 100%); }
         .animate-pop { animation: pop-in 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards; }
         .animate-fade-in { animation: fadeIn 0.3s ease-in-out; }
-        @keyframes pop-in { 0% { transform: scale(0.8); opacity: 0; } 100% { transform: scale(1); opacity: 1; } }
+        @keyframes pop-in { 0% { transform: scale(0.9); opacity: 0; } 100% { transform: scale(1); opacity: 1; } }
         @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
         
-        /* Inputs & Validation */
+        /* Inputs */
         .input-518 { width: 100%; text-align: center; font-size: 1.25rem; font-weight: bold; border: 1px solid #cbd5e1; border-radius: 0.5rem; padding: 0.5rem; transition: all 0.2s; background: white; }
         .input-518:focus { outline: none; border-color: #4f46e5; ring: 2px; box-shadow: 0 0 0 2px rgba(79, 70, 229, 0.2); }
         .input-error { border-color: #ef4444 !important; background-color: #fef2f2 !important; }
-        .input-error:focus { box-shadow: 0 0 0 2px rgba(239, 68, 68, 0.2) !important; }
 
-        /* Nav & Scroll */
+        /* Scroll & Nav */
         .tab-btn.active { color: #2563eb; }
         .tab-btn.active i { transform: translateY(-2px); }
-        ::-webkit-scrollbar { width: 0px; background: transparent; }
+        ::-webkit-scrollbar { width: 4px; }
+        ::-webkit-scrollbar-track { background: #f1f1f1; }
+        ::-webkit-scrollbar-thumb { background: #888; border-radius: 2px; }
+        
+        /* Summary Table Styles */
+        .sum-row { display: flex; justify-content: space-between; align-items: center; padding: 4px 0; border-bottom: 1px dashed #e5e7eb; }
+        .sum-row:last-child { border-bottom: none; }
+        .sum-label { font-size: 0.85rem; color: #4b5563; }
+        .sum-val { font-weight: 700; font-size: 0.95rem; color: #111827; font-family: 'Courier New', monospace; }
+        .sum-sub { padding-left: 1rem; background-color: #f9fafb; }
+        .sum-head { font-weight: bold; background-color: #e0e7ff; color: #3730a3; padding: 4px 8px; border-radius: 4px; margin-top: 8px; margin-bottom: 4px; font-size: 0.8rem; }
     </style>
 </head>
 <body class="pb-32">
@@ -62,9 +70,9 @@
                         <span class="ml-4 text-blue-600 font-bold shrink-0">เปิดอ่าน</span>
                     </button>
                     <button onclick="playMedia('pdf', '1ZUpRb1CQdMgMY4WzdAo-FVr2Cs12RanI')" class="p-4 bg-white border border-blue-200 rounded-xl shadow-sm card-hover text-left flex justify-between items-center bg-blue-50">
-                    <span class="text-blue-800 font-bold">คำสั่งแต่งตั้ง กปน. รปภ. (ผู้ปฏิบัติงานวันที่ 1 ก.พ. 69)</span>
-                    <span class="ml-4 text-blue-600 font-bold shrink-0">เปิดดู</span>
-                </button>
+                        <span class="text-blue-800 font-bold">คำสั่งแต่งตั้ง กปน. (1 ก.พ.)</span>
+                        <span class="ml-4 text-blue-600 font-bold shrink-0">เปิดดู</span>
+                    </button>
                 </div>
             </section>
 
@@ -81,7 +89,6 @@
                             <div class="text-xs text-gray-500 mt-1">เลือกตั้ง ส.ส. พร้อมประชามติ</div>
                         </div>
                     </button>
-
                     <button onclick="playMedia('video', 'ldVnTv37fQs')" class="flex items-center p-4 bg-white border rounded-xl shadow-sm card-hover text-left group">
                         <div class="bg-red-100 text-red-600 p-3 rounded-full mr-4 group-hover:bg-red-600 group-hover:text-white transition">▶</div>
                         <div>
@@ -89,7 +96,6 @@
                             <div class="text-xs text-gray-500 mt-1">เลือกตั้ง ส.ส. พร้อมประชามติ</div>
                         </div>
                     </button>
-
                     <button onclick="playMedia('video', 'Io5wNXjT_mA')" class="flex items-center p-4 bg-white border rounded-xl shadow-sm card-hover text-left group">
                         <div class="bg-red-100 text-red-600 p-3 rounded-full mr-4 group-hover:bg-red-600 group-hover:text-white transition">▶</div>
                         <div>
@@ -97,16 +103,27 @@
                             <div class="text-xs text-gray-500 mt-1">ออกเสียงประชามติ</div>
                         </div>
                     </button>
-
                     <button onclick="playMedia('pdf', '1XoS0kD69xCgWugAywhSxuxrbJw_qGJ6c')" class="p-4 bg-white border rounded-xl shadow-sm card-hover text-left flex justify-between items-center group">
                         <span class="text-slate-700 font-medium">คู่มือปฏิบัติงาน (วันเลือกตั้ง)</span>
                         <span class="ml-4 text-blue-600 font-bold shrink-0">เปิดอ่าน</span>
                     </button>
-                    
                     <div class="p-4 bg-gray-100 border border-dashed border-gray-400 rounded-xl flex justify-between items-center text-gray-500">
                         <span class="font-medium text-sm">คำสั่งแต่งตั้ง กปน. (8 ก.พ.)</span>
                         <span class="italic text-xs text-red-500 font-bold underline">รอไฟล์</span>
                     </div>
+                </div>
+            </section>
+            
+             <section class="mb-4">
+                <h2 class="text-xl font-bold mb-4 text-slate-700 flex items-center">
+                    <span class="bg-slate-700 w-2 h-8 rounded mr-3"></span>
+                    กรณีพิเศษ
+                </h2>
+                <div class="grid gap-3">
+                    <button onclick="playMedia('pdf', '1RLgeXhAZ3RbkMoshsy_Inkyxg1UJc_nK')" class="p-4 bg-white border rounded-xl shadow-sm card-hover text-left flex justify-between items-center group border-l-4 border-l-red-500">
+                        <span class="text-slate-700 font-bold italic">กรณีเพิ่มชื่อท้ายหน่วย</span>
+                        <span class="ml-4 text-blue-600 font-bold shrink-0">เปิดอ่าน</span>
+                    </button>
                 </div>
             </section>
         </main>
@@ -148,7 +165,6 @@
             <div id="view-percent" class="hidden bg-white rounded-2xl shadow-xl p-6 space-y-5 relative">
                 <button onclick="showTool('menu')" class="absolute top-4 right-4 text-gray-400 hover:text-gray-600"><i class="fa-solid fa-xmark text-xl"></i></button>
                 <h3 class="font-bold text-teal-700 border-b pb-2">สูตรคำนวณร้อยละ (%)</h3>
-                
                 <div class="space-y-4">
                     <div>
                         <label class="block text-blue-800 font-bold mb-1 text-sm">ชาย (ใช้สิทธิ)</label>
@@ -163,9 +179,7 @@
                         <input type="number" id="calc-total" placeholder="0" class="input-518 bg-gray-50">
                     </div>
                 </div>
-
                 <button onclick="calculateTurnout()" class="w-full bg-teal-600 hover:bg-teal-700 text-white font-bold py-4 rounded-xl shadow-lg mt-2">คำนวณร้อยละ</button>
-
                 <div id="calc-result-box" class="hidden bg-gray-50 rounded-xl p-4 text-center border border-gray-200 mt-4">
                     <p class="text-sm text-gray-500">รวมผู้มาใช้สิทธิ</p>
                     <h3 id="res-sum-people" class="text-2xl font-black text-gray-800">0 คน</h3>
@@ -185,17 +199,9 @@
 
                 <div class="space-y-4">
                     <h4 class="font-bold text-gray-700 bg-gray-100 p-2 rounded">1. จำนวนผู้มีสิทธิเลือกตั้ง</h4>
+                    <div><div class="flex items-center justify-between gap-2"><label class="text-sm w-2/3">1.1 ตามบัญชีรายชื่อ</label><input type="number" id="inp-1-1" class="input-518 w-1/3 input-realtime" placeholder="0"></div></div>
                     <div>
-                        <div class="flex items-center justify-between gap-2">
-                            <label class="text-sm w-2/3">1.1 ตามบัญชีรายชื่อ</label>
-                            <input type="number" id="inp-1-1" class="input-518 w-1/3 input-realtime" placeholder="0">
-                        </div>
-                    </div>
-                    <div>
-                        <div class="flex items-center justify-between gap-2">
-                            <label class="text-sm w-2/3">1.2 มาแสดงตน</label>
-                            <input type="number" id="inp-1-2" class="input-518 w-1/3 input-realtime" placeholder="0">
-                        </div>
+                        <div class="flex items-center justify-between gap-2"><label class="text-sm w-2/3">1.2 มาแสดงตน</label><input type="number" id="inp-1-2" class="input-518 w-1/3 input-realtime" placeholder="0"></div>
                         <div id="err-1-2" class="hidden text-xs text-red-500 text-right mt-1 font-bold"></div>
                     </div>
                 </div>
@@ -203,40 +209,22 @@
                 <div class="space-y-4">
                     <h4 class="font-bold text-gray-700 bg-gray-100 p-2 rounded">2. จำนวนบัตรเลือกตั้ง</h4>
                     <div>
-                        <div class="flex items-center justify-between gap-2">
-                            <label class="text-sm w-2/3">2.1 บัตรจัดสรร (รับมา)</label>
-                            <input type="number" id="inp-2-1" class="input-518 w-1/3 input-realtime" placeholder="0">
-                        </div>
+                        <div class="flex items-center justify-between gap-2"><label class="text-sm w-2/3">2.1 บัตรจัดสรร</label><input type="number" id="inp-2-1" class="input-518 w-1/3 input-realtime" placeholder="0"></div>
                         <div id="err-2-1" class="hidden text-xs text-red-500 text-right mt-1 font-bold"></div>
                     </div>
                     <div>
-                        <div class="flex items-center justify-between gap-2">
-                            <label class="text-sm w-2/3">2.2 บัตรที่ใช้ (หย่อนลงหีบ)</label>
-                            <input type="number" id="inp-2-2" class="input-518 w-1/3 input-realtime" placeholder="0">
-                        </div>
+                        <div class="flex items-center justify-between gap-2"><label class="text-sm w-2/3">2.2 บัตรที่ใช้</label><input type="number" id="inp-2-2" class="input-518 w-1/3 input-realtime" placeholder="0"></div>
                         <div id="err-2-2" class="hidden text-xs text-red-500 text-right mt-1 font-bold"></div>
                     </div>
                     <div class="bg-indigo-50 p-3 rounded-lg space-y-3 border border-indigo-100">
-                        <p class="text-xs text-indigo-600 font-bold mb-1">รายละเอียดบัตรที่ใช้ (ต้องรวมกันได้เท่าข้อ 2.2)</p>
-                        <div class="flex items-center justify-between gap-2">
-                            <label class="text-sm text-gray-600">2.2.1 บัตรดี</label>
-                            <input type="number" id="inp-2-2-1" class="input-518 w-24 bg-white input-realtime" placeholder="0">
-                        </div>
-                        <div class="flex items-center justify-between gap-2">
-                            <label class="text-sm text-gray-600">2.2.2 บัตรเสีย</label>
-                            <input type="number" id="inp-2-2-2" class="input-518 w-24 bg-white input-realtime" placeholder="0">
-                        </div>
-                        <div class="flex items-center justify-between gap-2">
-                            <label class="text-sm text-gray-600">2.2.3 ไม่เลือกใคร</label>
-                            <input type="number" id="inp-2-2-3" class="input-518 w-24 bg-white input-realtime" placeholder="0">
-                        </div>
+                        <p class="text-xs text-indigo-600 font-bold mb-1">รายละเอียดบัตรที่ใช้ (2.2)</p>
+                        <div class="flex items-center justify-between gap-2"><label class="text-sm text-gray-600 font-bold">2.2.1 บัตรดี (รวมโหวตโน)</label><input type="number" id="inp-2-2-1" class="input-518 w-24 bg-white input-realtime" placeholder="0"></div>
+                        <div class="flex items-center justify-between gap-2"><label class="text-sm text-gray-600">2.2.2 บัตรเสีย</label><input type="number" id="inp-2-2-2" class="input-518 w-24 bg-white input-realtime" placeholder="0"></div>
+                        <div class="flex items-center justify-between gap-2 pt-2 border-t border-indigo-200"><label class="text-sm text-gray-500 w-2/3">2.2.3 ไม่เลือกใคร (โหวตโน)</label><input type="number" id="inp-2-2-3" class="input-518 w-24 bg-white input-realtime" placeholder="0"></div>
                         <div id="err-sum-2-2" class="hidden text-xs text-red-500 text-center mt-1 font-bold bg-white p-1 rounded border border-red-200"></div>
                     </div>
                     <div>
-                        <div class="flex items-center justify-between gap-2">
-                            <label class="text-sm w-2/3">2.3 บัตรเหลือ</label>
-                            <input type="number" id="inp-2-3" class="input-518 w-1/3 input-realtime" placeholder="0">
-                        </div>
+                        <div class="flex items-center justify-between gap-2"><label class="text-sm w-2/3">2.3 บัตรเหลือ</label><input type="number" id="inp-2-3" class="input-518 w-1/3 input-realtime" placeholder="0"></div>
                         <div id="err-sum-2-1" class="hidden text-xs text-red-500 text-right mt-1 font-bold"></div>
                     </div>
                 </div>
@@ -263,50 +251,35 @@
         </div>
     </section>
 
-    <div id="capture-overlay" class="hidden fixed inset-0 z-[60] bg-black/80 flex items-center justify-center p-4 overflow-y-auto backdrop-blur-sm">
-        <div class="bg-white w-full max-w-sm rounded-none md:rounded-xl shadow-2xl overflow-hidden relative animate-pop">
-            <button onclick="document.getElementById('capture-overlay').classList.add('hidden')" class="absolute top-2 right-2 text-gray-400 hover:text-gray-800 p-2 z-10">
+    <div id="capture-overlay" class="hidden fixed inset-0 z-[60] bg-black/80 flex items-center justify-center p-4 backdrop-blur-sm">
+        <div class="bg-white w-full max-w-sm rounded-none md:rounded-xl shadow-2xl flex flex-col max-h-[90vh] animate-pop relative">
+            
+            <button onclick="document.getElementById('capture-overlay').classList.add('hidden')" class="absolute top-2 right-2 text-white hover:text-gray-200 p-2 z-10">
                 <i class="fa-solid fa-xmark text-2xl"></i>
             </button>
             
-            <div class="bg-indigo-900 text-white p-6 text-center">
-                <h3 class="text-xl font-bold">สรุปผลการนับคะแนน</h3>
-                <p class="text-indigo-200 text-sm">แบบตรวจสอบความถูกต้อง 5/18</p>
-            </div>
-            
-            <div class="p-6">
-                <div class="text-center mb-6">
-                    <div id="slip-icon" class="text-6xl mb-2"></div>
-                    <h2 id="slip-status" class="text-2xl font-black"></h2>
-                    <p id="slip-msg" class="text-sm text-gray-500 mt-1"></p>
+            <div class="bg-indigo-900 text-white p-4 text-center shrink-0">
+                <h3 class="text-lg font-bold">สรุปผลการนับคะแนน 5/18</h3>
+                <div id="slip-status-box" class="mt-2 inline-block px-4 py-1 rounded-full text-sm font-bold bg-white/20">
+                    <span id="slip-icon"></span> <span id="slip-status"></span>
                 </div>
+            </div>
 
-                <div class="space-y-3 text-sm border-t border-b border-gray-100 py-4">
-                    <div class="flex justify-between">
-                        <span class="text-gray-600">ผู้มาใช้สิทธิ (1.2)</span>
-                        <span id="slip-voters" class="font-bold text-gray-900">0</span>
-                    </div>
-                    <div class="flex justify-between">
-                        <span class="text-gray-600">บัตรที่ใช้ (2.2)</span>
-                        <span id="slip-used" class="font-bold text-gray-900">0</span>
-                    </div>
-                    <div class="flex justify-between">
-                        <span class="text-gray-600">บัตรดี (2.2.1)</span>
-                        <span id="slip-good" class="font-bold text-gray-900">0</span>
-                    </div>
-                    <div class="flex justify-between">
-                        <span class="text-gray-600">รวมคะแนนผู้สมัคร</span>
-                        <span id="slip-scores" class="font-bold text-gray-900">0</span>
+            <div class="p-4 overflow-y-auto flex-grow bg-white">
+                
+                <div id="slip-errors" class="mb-4 hidden">
+                     <div class="bg-red-50 border-l-4 border-red-500 p-3 rounded">
+                        <p class="text-xs font-bold text-red-600 mb-1">⚠️ พบข้อผิดพลาด:</p>
+                        <ul id="slip-error-list" class="text-xs text-red-600 space-y-1 list-disc pl-4"></ul>
                     </div>
                 </div>
 
-                <div id="slip-errors" class="mt-4 hidden">
-                    <p class="text-xs font-bold text-red-500 mb-2 uppercase">รายการที่ต้องแก้ไข:</p>
-                    <ul id="slip-error-list" class="text-xs text-red-600 space-y-1 list-disc pl-4 bg-red-50 p-2 rounded"></ul>
-                </div>
+                <div id="slip-content-list" class="space-y-1">
+                    </div>
+
             </div>
             
-            <div class="bg-gray-100 p-4 text-center text-xs text-gray-400 font-mono">
+            <div class="bg-gray-100 p-3 text-center text-xs text-gray-400 font-mono shrink-0">
                 System Generated by Klongtoey IT
             </div>
         </div>
@@ -332,13 +305,12 @@
     </div>
 
     <script>
-        // --- 1. Navigation Logic ---
+        // --- Navigation ---
         function switchTab(tab) {
             const manual = document.getElementById('page-manual');
             const tools = document.getElementById('page-tools');
             const btnM = document.getElementById('tab-manual');
             const btnT = document.getElementById('tab-tools');
-
             if (tab === 'manual') {
                 manual.classList.remove('hidden'); tools.classList.add('hidden');
                 btnM.classList.add('active', 'text-blue-600'); btnM.classList.remove('text-gray-400');
@@ -347,7 +319,7 @@
                 manual.classList.add('hidden'); tools.classList.remove('hidden');
                 btnT.classList.add('active', 'text-teal-600'); btnT.classList.remove('text-gray-400');
                 btnM.classList.remove('active', 'text-blue-600'); btnM.classList.add('text-gray-400');
-                showTool('menu'); // Reset to menu
+                showTool('menu');
             }
             window.scrollTo(0,0);
         }
@@ -356,24 +328,21 @@
             document.getElementById('tool-menu').classList.add('hidden');
             document.getElementById('view-percent').classList.add('hidden');
             document.getElementById('view-518').classList.add('hidden');
-
             if(tool === 'menu') document.getElementById('tool-menu').classList.remove('hidden');
             if(tool === 'percent') document.getElementById('view-percent').classList.remove('hidden');
             if(tool === '518') {
                 document.getElementById('view-518').classList.remove('hidden');
                 if(document.getElementById('candidate-list').children.length === 0) generateCandidateInputs();
-                attachRealTimeValidation(); // Re-attach listeners
+                attachRealTimeValidation();
             }
         }
 
-        // --- 2. Percent Calculator ---
+        // --- Percent Calculator ---
         function calculateTurnout() {
             const m = parseInt(document.getElementById('calc-male').value) || 0;
             const f = parseInt(document.getElementById('calc-female').value) || 0;
             const t = parseInt(document.getElementById('calc-total').value) || 0;
-            
             if(t === 0) { alert('กรุณาระบุจำนวนผู้มีสิทธิ'); return; }
-            
             const sum = m + f;
             const per = (sum * 100) / t;
             document.getElementById('res-sum-people').innerText = sum.toLocaleString() + " คน";
@@ -382,9 +351,7 @@
             document.getElementById('calc-result-box').classList.remove('hidden');
         }
 
-        // --- 3. 5/18 Real-time Logic ---
-        
-        // Generate Candidate Inputs
+        // --- 5/18 Logic ---
         function generateCandidateInputs() {
             const num = parseInt(document.getElementById('num-candidates').value) || 0;
             const container = document.getElementById('candidate-list');
@@ -396,23 +363,20 @@
                         <input type="number" class="cand-score input-518 w-2/3 h-10 border-gray-300 input-realtime" placeholder="คะแนน">
                     </div>`;
             }
-            attachRealTimeValidation(); // Attach listeners to new inputs
+            attachRealTimeValidation();
         }
 
-        // Attach Listeners
         function attachRealTimeValidation() {
             document.querySelectorAll('.input-realtime').forEach(el => {
-                el.removeEventListener('input', validateRealTime); // Avoid duplicates
+                el.removeEventListener('input', validateRealTime);
                 el.addEventListener('input', validateRealTime);
             });
         }
 
-        // Core Validation Function
         function validateRealTime() {
             const get = (id) => parseInt(document.getElementById(id).value) || 0;
             const getSum = (cls) => Array.from(document.querySelectorAll(cls)).reduce((a,b) => a + (parseInt(b.value)||0), 0);
             
-            // Values
             const v1_1 = get('inp-1-1'); const v1_2 = get('inp-1-2');
             const v2_1 = get('inp-2-1'); const v2_2 = get('inp-2-2');
             const v2_2_1 = get('inp-2-2-1'); const v2_2_2 = get('inp-2-2-2'); const v2_2_3 = get('inp-2-2-3');
@@ -421,108 +385,105 @@
             
             document.getElementById('sum-scores').innerText = scoreSum.toLocaleString();
 
-            // Helper to show/hide error
             const showError = (id, condition, msg) => {
                 const el = document.getElementById(id);
-                if(condition) {
-                    el.innerText = msg; el.classList.remove('hidden');
-                } else {
-                    el.classList.add('hidden');
-                }
+                if(condition) { el.innerText = msg; el.classList.remove('hidden'); }
+                else { el.classList.add('hidden'); }
             };
             const markInput = (id, condition) => {
                  const el = document.getElementById(id);
                  condition ? el.classList.add('input-error') : el.classList.remove('input-error');
             };
 
-            // Rule 1: 1.2 <= 1.1
-            const err1 = (v1_2 > v1_1 && v1_1 > 0);
-            showError('err-1-2', err1, `❌ ต้องไม่เกินผู้มีสิทธิ (${v1_1})`);
-            markInput('inp-1-2', err1);
-
-            // Rule 2: 1.2 == 2.2
-            const err2 = (v1_2 !== v2_2 && v2_2 > 0);
-            showError('err-2-2', err2, `❌ ต้องเท่ากับผู้แสดงตน (${v1_2})`);
-            markInput('inp-2-2', err2);
-
-            // Rule 3: 2.2 > 2.1
-            const err3 = (v2_2 > v2_1 && v2_1 > 0);
-            showError('err-2-1', err3, `❌ บัตรใช้เกินบัตรจัดสรร`); // Warn at 2.1 or 2.2 depending on flow, usually warn usage
-            markInput('inp-2-2', (v2_2 > v2_1)); 
-
-            // Rule 4: 2.2 Sum Check
-            const sum22 = v2_2_1 + v2_2_2 + v2_2_3;
-            const err4 = (sum22 !== v2_2 && v2_2 > 0);
-            showError('err-sum-2-2', err4, `❌ ยอดรวม (${sum22}) ไม่ตรงกับบัตรที่ใช้ (${v2_2})`);
-            
-            // Rule 5: 2.1 Sum Check
-            const sumTotal = v2_2 + v2_3;
-            const err5 = (sumTotal !== v2_1 && v2_1 > 0);
-            showError('err-sum-2-1', err5, `❌ ใช้+เหลือ (${sumTotal}) ไม่เท่ากับจัดสรร (${v2_1})`);
-
-            // Rule 6: Scores == Bad Dee
-            const err6 = (scoreSum !== v2_2_1 && v2_2_1 > 0);
-            showError('err-scores', err6, `❌ คะแนนรวม (${scoreSum}) ไม่เท่ากับบัตรดี (${v2_2_1})`);
+            const err1 = (v1_2 > v1_1 && v1_1 > 0); showError('err-1-2', err1, `❌ ต้องไม่เกินผู้มีสิทธิ (${v1_1})`); markInput('inp-1-2', err1);
+            const err2 = (v1_2 !== v2_2 && v2_2 > 0); showError('err-2-2', err2, `❌ ต้องเท่ากับผู้แสดงตน (${v1_2})`); markInput('inp-2-2', err2);
+            const err3 = (v2_2 > v2_1 && v2_1 > 0); showError('err-2-1', err3, `❌ บัตรใช้เกินบัตรจัดสรร`); markInput('inp-2-2', (v2_2 > v2_1)); 
+            const sum22 = v2_2_1 + v2_2_2; const err4 = (sum22 !== v2_2 && v2_2 > 0); showError('err-sum-2-2', err4, `❌ บัตรดี (${v2_2_1}) + เสีย (${v2_2_2}) ต้องเท่ากับใช้ (${v2_2})`);
+            const sumTotal = v2_2 + v2_3; const err5 = (sumTotal !== v2_1 && v2_1 > 0); showError('err-sum-2-1', err5, `❌ ใช้+เหลือ (${sumTotal}) ไม่เท่ากับจัดสรร (${v2_1})`);
+            const sumGood = scoreSum + v2_2_3; const err6 = (sumGood !== v2_2_1 && v2_2_1 > 0); showError('err-scores', err6, `❌ คะแนนรวม (${scoreSum}) + โหวตโน (${v2_2_3}) ต้องเท่ากับบัตรดี (${v2_2_1})`);
             
             return !(err1 || err2 || err3 || err4 || err5 || err6);
         }
 
-        // Summary Card
+        // Updated Summary Card Function
         function showSummaryCard() {
-            const isValid = validateRealTime(); // Re-run validation
+            const isValid = validateRealTime();
             const get = (id) => parseInt(document.getElementById(id).value) || 0;
             const getSum = (cls) => Array.from(document.querySelectorAll(cls)).reduce((a,b) => a + (parseInt(b.value)||0), 0);
+            
+            const v1_1 = get('inp-1-1'); const v1_2 = get('inp-1-2');
+            const v2_1 = get('inp-2-1'); const v2_2 = get('inp-2-2');
+            const v2_2_1 = get('inp-2-2-1'); const v2_2_2 = get('inp-2-2-2'); const v2_2_3 = get('inp-2-2-3');
+            const v2_3 = get('inp-2-3');
+            const scoreSum = getSum('.cand-score');
 
-            // Populate Data
-            document.getElementById('slip-voters').innerText = get('inp-1-2');
-            document.getElementById('slip-used').innerText = get('inp-2-2');
-            document.getElementById('slip-good').innerText = get('inp-2-2-1');
-            document.getElementById('slip-scores').innerText = getSum('.cand-score');
-
+            // Set Status
+            const statusBox = document.getElementById('slip-status-box');
             const icon = document.getElementById('slip-icon');
             const status = document.getElementById('slip-status');
-            const msg = document.getElementById('slip-msg');
             const errList = document.getElementById('slip-errors');
             const ul = document.getElementById('slip-error-list');
 
             if(isValid) {
-                icon.innerText = "✅";
-                status.innerText = "ผ่าน";
-                status.className = "text-2xl font-black text-green-600";
-                msg.innerText = "ข้อมูลถูกต้องครบถ้วน";
+                icon.innerText = "✅"; status.innerText = "ผ่าน (ข้อมูลถูกต้อง)";
+                statusBox.className = "mt-2 inline-block px-4 py-1 rounded-full text-sm font-bold bg-green-500 text-white";
                 errList.classList.add('hidden');
             } else {
-                icon.innerText = "❌";
-                status.innerText = "ไม่ผ่าน";
-                status.className = "text-2xl font-black text-red-600";
-                msg.innerText = "กรุณาตรวจสอบข้อผิดพลาดด้านล่าง";
+                icon.innerText = "❌"; status.innerText = "ไม่ผ่าน (มีข้อผิดพลาด)";
+                statusBox.className = "mt-2 inline-block px-4 py-1 rounded-full text-sm font-bold bg-red-500 text-white";
                 errList.classList.remove('hidden');
-                ul.innerHTML = ''; // Clear old errors
-                
-                // Add errors to list manually for summary
+                ul.innerHTML = '';
                 const addErr = (txt) => ul.innerHTML += `<li>${txt}</li>`;
-                if(get('inp-1-2') > get('inp-1-1')) addErr("ข้อ 1.2 มากกว่า 1.1");
-                if(get('inp-1-2') !== get('inp-2-2')) addErr("ข้อ 1.2 ไม่เท่ากับ 2.2");
-                if(get('inp-2-2-1')+get('inp-2-2-2')+get('inp-2-2-3') !== get('inp-2-2')) addErr("ผลรวมย่อย 2.2 ไม่ตรง");
-                if(get('inp-2-2')+get('inp-2-3') !== get('inp-2-1')) addErr("บัตรใช้+เหลือ ไม่เท่ากับ จัดสรร");
-                if(getSum('.cand-score') !== get('inp-2-2-1')) addErr("คะแนนรวม ไม่เท่ากับ บัตรดี");
+                if(v1_2 > v1_1) addErr("1.2 มากกว่า 1.1");
+                if(v1_2 !== v2_2) addErr("1.2 ไม่เท่ากับ 2.2");
+                if(v2_2_1+v2_2_2 !== v2_2) addErr("2.2.1+2.2.2 ไม่เท่ากับ 2.2");
+                if(v2_2+v2_3 !== v2_1) addErr("2.2+2.3 ไม่เท่ากับ 2.1");
+                if(scoreSum + v2_2_3 !== v2_2_1) addErr("คะแนน+โหวตโน ไม่เท่ากับ 2.2.1");
             }
 
+            // Generate HTML Content
+            let listHtml = `
+                <div class="sum-head">ส่วนที่ 1 : ผู้มีสิทธิ</div>
+                <div class="sum-row"><span class="sum-label">1.1 ผู้มีสิทธิ (บัญชี)</span><span class="sum-val">${v1_1}</span></div>
+                <div class="sum-row"><span class="sum-label">1.2 ผู้แสดงตน</span><span class="sum-val">${v1_2}</span></div>
+                
+                <div class="sum-head">ส่วนที่ 2 : บัตรเลือกตั้ง</div>
+                <div class="sum-row"><span class="sum-label">2.1 บัตรจัดสรร</span><span class="sum-val">${v2_1}</span></div>
+                <div class="sum-row"><span class="sum-label">2.2 บัตรที่ใช้</span><span class="sum-val">${v2_2}</span></div>
+                <div class="sum-row sum-sub"><span class="sum-label">2.2.1 บัตรดี</span><span class="sum-val">${v2_2_1}</span></div>
+                <div class="sum-row sum-sub"><span class="sum-label">2.2.2 บัตรเสีย</span><span class="sum-val">${v2_2_2}</span></div>
+                <div class="sum-row sum-sub"><span class="sum-label">2.2.3 ไม่เลือกใคร</span><span class="sum-val">${v2_2_3}</span></div>
+                <div class="sum-row"><span class="sum-label">2.3 บัตรเหลือ</span><span class="sum-val">${v2_3}</span></div>
+
+                <div class="sum-head">ส่วนที่ 3 : คะแนนผู้สมัคร</div>
+            `;
+
+            // Candidates Loop
+            document.querySelectorAll('.cand-score').forEach((inp, idx) => {
+                const s = parseInt(inp.value) || 0;
+                listHtml += `<div class="sum-row sum-sub"><span class="sum-label">เบอร์ ${idx+1}</span><span class="sum-val">${s}</span></div>`;
+            });
+
+            // Total Score
+            listHtml += `
+                <div class="sum-row mt-2 pt-2 border-t border-gray-400 bg-yellow-50">
+                    <span class="sum-label font-bold text-black">3. รวมคะแนนทั้งสิ้น</span>
+                    <span class="sum-val text-indigo-700 font-black text-lg">${scoreSum}</span>
+                </div>
+            `;
+
+            document.getElementById('slip-content-list').innerHTML = listHtml;
             document.getElementById('capture-overlay').classList.remove('hidden');
         }
 
-        // --- 4. Media Logic ---
+        // --- Media ---
         function playMedia(type, id) {
             const modal = document.getElementById('mediaModal');
             const viewer = document.getElementById('mainViewer');
-            let url = (type === 'video') 
-                ? `https://www.youtube-nocookie.com/embed/${id}?autoplay=1&rel=0`
-                : `https://drive.google.com/file/d/${id}/preview`;
-            
+            let url = (type === 'video') ? `https://www.youtube-nocookie.com/embed/${id}?autoplay=1&rel=0` : `https://drive.google.com/file/d/${id}/preview`;
             viewer.src = url;
             modal.classList.remove('hidden');
         }
-
         function closeMedia() {
             document.getElementById('mediaModal').classList.add('hidden');
             document.getElementById('mainViewer').src = "";
@@ -530,4 +491,3 @@
     </script>
 </body>
 </html>
-
