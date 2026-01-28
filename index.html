@@ -154,7 +154,7 @@
                     <div class="flex items-center gap-4">
                         <div class="w-14 h-14 bg-indigo-100 rounded-full flex items-center justify-center text-indigo-600 text-2xl"><i class="fa-solid fa-file-invoice-dollar"></i></div>
                         <div class="text-left">
-                            <h3 class="font-bold text-gray-800 text-lg">ตรวจสอบ 5/18</h3>
+                            <h3 class="font-bold text-gray-800 text-lg">ตรวจสอบ 5/18 (ส.ส.)</h3>
                             <p class="text-sm text-gray-500">เช็คยอดบัตร/คะแนน (แจ้งเตือนทันที)</p>
                         </div>
                     </div>
@@ -193,7 +193,7 @@
             <div id="view-518" class="hidden bg-white rounded-2xl shadow-xl p-4 md:p-6 space-y-6 relative">
                 <button onclick="showTool('menu')" class="absolute top-4 right-4 text-gray-400 hover:text-gray-600 z-10"><i class="fa-solid fa-xmark text-xl"></i></button>
                 <div class="border-b pb-2">
-                    <h3 class="font-bold text-indigo-700 text-lg">ตรวจสอบ 5/18</h3>
+                    <h3 class="font-bold text-indigo-700 text-lg">ตรวจสอบ 5/18 (ส.ส.)</h3>
                     <p class="text-xs text-gray-500">ระบบจะแจ้งเตือนตัวหนังสือสีแดงเมื่อตัวเลขผิดปกติ</p>
                 </div>
 
@@ -216,13 +216,25 @@
                         <div class="flex items-center justify-between gap-2"><label class="text-sm w-2/3">2.2 บัตรที่ใช้</label><input type="number" id="inp-2-2" class="input-518 w-1/3 input-realtime" placeholder="0"></div>
                         <div id="err-2-2" class="hidden text-xs text-red-500 text-right mt-1 font-bold"></div>
                     </div>
+                    
                     <div class="bg-indigo-50 p-3 rounded-lg space-y-3 border border-indigo-100">
                         <p class="text-xs text-indigo-600 font-bold mb-1">รายละเอียดบัตรที่ใช้ (2.2)</p>
-                        <div class="flex items-center justify-between gap-2"><label class="text-sm text-gray-600 font-bold">2.2.1 บัตรดี (รวมโหวตโน)</label><input type="number" id="inp-2-2-1" class="input-518 w-24 bg-white input-realtime" placeholder="0"></div>
+                        
+                        <div class="text-xs text-orange-600 mb-2 border-l-4 border-orange-500 pl-2 bg-orange-50 p-1">
+                            * ของ ส.ส. <b>บัตรดี</b> คือบัตรที่มีคะแนนเท่านั้น
+                        </div>
+
+                        <div class="flex items-center justify-between gap-2"><label class="text-sm text-gray-600 font-bold">2.2.1 บัตรดี (คะแนนข้อ 3)</label><input type="number" id="inp-2-2-1" class="input-518 w-24 bg-white input-realtime" placeholder="0"></div>
                         <div class="flex items-center justify-between gap-2"><label class="text-sm text-gray-600">2.2.2 บัตรเสีย</label><input type="number" id="inp-2-2-2" class="input-518 w-24 bg-white input-realtime" placeholder="0"></div>
-                        <div class="flex items-center justify-between gap-2 pt-2 border-t border-indigo-200"><label class="text-sm text-gray-500 w-2/3">2.2.3 ไม่เลือกใคร (โหวตโน)</label><input type="number" id="inp-2-2-3" class="input-518 w-24 bg-white input-realtime" placeholder="0"></div>
+                        
+                        <div class="text-xs text-orange-600 mt-2 border-l-4 border-orange-500 pl-2 bg-orange-50 p-1">
+                            * ของ ส.ส. <b>ไม่เลือกใคร</b> จะไม่รวมกับบัตรดี
+                        </div>
+                        <div class="flex items-center justify-between gap-2"><label class="text-sm text-gray-500 w-2/3">2.2.3 ไม่เลือกใคร (โหวตโน)</label><input type="number" id="inp-2-2-3" class="input-518 w-24 bg-white input-realtime" placeholder="0"></div>
+                        
                         <div id="err-sum-2-2" class="hidden text-xs text-red-500 text-center mt-1 font-bold bg-white p-1 rounded border border-red-200"></div>
                     </div>
+                    
                     <div>
                         <div class="flex items-center justify-between gap-2"><label class="text-sm w-2/3">2.3 บัตรเหลือ</label><input type="number" id="inp-2-3" class="input-518 w-1/3 input-realtime" placeholder="0"></div>
                         <div id="err-sum-2-1" class="hidden text-xs text-red-500 text-right mt-1 font-bold"></div>
@@ -253,35 +265,25 @@
 
     <div id="capture-overlay" class="hidden fixed inset-0 z-[60] bg-black/80 flex items-center justify-center p-4 backdrop-blur-sm">
         <div class="bg-white w-full max-w-sm rounded-none md:rounded-xl shadow-2xl flex flex-col max-h-[90vh] animate-pop relative">
-            
             <button onclick="document.getElementById('capture-overlay').classList.add('hidden')" class="absolute top-2 right-2 text-white hover:text-gray-200 p-2 z-10">
                 <i class="fa-solid fa-xmark text-2xl"></i>
             </button>
-            
             <div class="bg-indigo-900 text-white p-4 text-center shrink-0">
                 <h3 class="text-lg font-bold">สรุปผลการนับคะแนน 5/18</h3>
                 <div id="slip-status-box" class="mt-2 inline-block px-4 py-1 rounded-full text-sm font-bold bg-white/20">
                     <span id="slip-icon"></span> <span id="slip-status"></span>
                 </div>
             </div>
-
             <div class="p-4 overflow-y-auto flex-grow bg-white">
-                
                 <div id="slip-errors" class="mb-4 hidden">
                      <div class="bg-red-50 border-l-4 border-red-500 p-3 rounded">
                         <p class="text-xs font-bold text-red-600 mb-1">⚠️ พบข้อผิดพลาด:</p>
                         <ul id="slip-error-list" class="text-xs text-red-600 space-y-1 list-disc pl-4"></ul>
                     </div>
                 </div>
-
-                <div id="slip-content-list" class="space-y-1">
-                    </div>
-
+                <div id="slip-content-list" class="space-y-1"></div>
             </div>
-            
-            <div class="bg-gray-100 p-3 text-center text-xs text-gray-400 font-mono shrink-0">
-                System Generated by Klongtoey IT
-            </div>
+            <div class="bg-gray-100 p-3 text-center text-xs text-gray-400 font-mono shrink-0">System Generated by Klongtoey IT</div>
         </div>
     </div>
 
@@ -351,7 +353,7 @@
             document.getElementById('calc-result-box').classList.remove('hidden');
         }
 
-        // --- 5/18 Logic ---
+        // --- 5/18 Logic (MP) ---
         function generateCandidateInputs() {
             const num = parseInt(document.getElementById('num-candidates').value) || 0;
             const container = document.getElementById('candidate-list');
@@ -379,7 +381,9 @@
             
             const v1_1 = get('inp-1-1'); const v1_2 = get('inp-1-2');
             const v2_1 = get('inp-2-1'); const v2_2 = get('inp-2-2');
-            const v2_2_1 = get('inp-2-2-1'); const v2_2_2 = get('inp-2-2-2'); const v2_2_3 = get('inp-2-2-3');
+            const v2_2_1 = get('inp-2-2-1'); 
+            const v2_2_2 = get('inp-2-2-2'); 
+            const v2_2_3 = get('inp-2-2-3');
             const v2_3 = get('inp-2-3');
             const scoreSum = getSum('.cand-score');
             
@@ -398,14 +402,20 @@
             const err1 = (v1_2 > v1_1 && v1_1 > 0); showError('err-1-2', err1, `❌ ต้องไม่เกินผู้มีสิทธิ (${v1_1})`); markInput('inp-1-2', err1);
             const err2 = (v1_2 !== v2_2 && v2_2 > 0); showError('err-2-2', err2, `❌ ต้องเท่ากับผู้แสดงตน (${v1_2})`); markInput('inp-2-2', err2);
             const err3 = (v2_2 > v2_1 && v2_1 > 0); showError('err-2-1', err3, `❌ บัตรใช้เกินบัตรจัดสรร`); markInput('inp-2-2', (v2_2 > v2_1)); 
-            const sum22 = v2_2_1 + v2_2_2; const err4 = (sum22 !== v2_2 && v2_2 > 0); showError('err-sum-2-2', err4, `❌ บัตรดี (${v2_2_1}) + เสีย (${v2_2_2}) ต้องเท่ากับใช้ (${v2_2})`);
+            
+            // MP Logic: 2.2 = 2.2.1 + 2.2.2 + 2.2.3
+            const sum22 = v2_2_1 + v2_2_2 + v2_2_3; 
+            const err4 = (sum22 !== v2_2 && v2_2 > 0); showError('err-sum-2-2', err4, `❌ ดี (${v2_2_1})+เสีย (${v2_2_2})+โน (${v2_2_3}) ≠ ใช้ (${v2_2})`);
+            
             const sumTotal = v2_2 + v2_3; const err5 = (sumTotal !== v2_1 && v2_1 > 0); showError('err-sum-2-1', err5, `❌ ใช้+เหลือ (${sumTotal}) ไม่เท่ากับจัดสรร (${v2_1})`);
-            const sumGood = scoreSum + v2_2_3; const err6 = (sumGood !== v2_2_1 && v2_2_1 > 0); showError('err-scores', err6, `❌ คะแนนรวม (${scoreSum}) + โหวตโน (${v2_2_3}) ต้องเท่ากับบัตรดี (${v2_2_1})`);
+            
+            // MP Logic: Scores = 2.2.1
+            const err6 = (scoreSum !== v2_2_1 && v2_2_1 > 0); showError('err-scores', err6, `❌ คะแนนรวม (${scoreSum}) ไม่เท่ากับบัตรดี (${v2_2_1})`);
             
             return !(err1 || err2 || err3 || err4 || err5 || err6);
         }
 
-        // Updated Summary Card Function
+        // Summary Card
         function showSummaryCard() {
             const isValid = validateRealTime();
             const get = (id) => parseInt(document.getElementById(id).value) || 0;
@@ -425,20 +435,19 @@
             const ul = document.getElementById('slip-error-list');
 
             if(isValid) {
-                icon.innerText = "✅"; status.innerText = "ผ่าน (ข้อมูลถูกต้อง)";
+                icon.innerText = "✅"; status.innerText = "ผ่าน";
                 statusBox.className = "mt-2 inline-block px-4 py-1 rounded-full text-sm font-bold bg-green-500 text-white";
                 errList.classList.add('hidden');
             } else {
-                icon.innerText = "❌"; status.innerText = "ไม่ผ่าน (มีข้อผิดพลาด)";
+                icon.innerText = "❌"; status.innerText = "ไม่ผ่าน";
                 statusBox.className = "mt-2 inline-block px-4 py-1 rounded-full text-sm font-bold bg-red-500 text-white";
                 errList.classList.remove('hidden');
                 ul.innerHTML = '';
                 const addErr = (txt) => ul.innerHTML += `<li>${txt}</li>`;
-                if(v1_2 > v1_1) addErr("1.2 มากกว่า 1.1");
                 if(v1_2 !== v2_2) addErr("1.2 ไม่เท่ากับ 2.2");
-                if(v2_2_1+v2_2_2 !== v2_2) addErr("2.2.1+2.2.2 ไม่เท่ากับ 2.2");
+                if(v2_2_1+v2_2_2+v2_2_3 !== v2_2) addErr("ดี+เสีย+โน ไม่เท่ากับ 2.2");
                 if(v2_2+v2_3 !== v2_1) addErr("2.2+2.3 ไม่เท่ากับ 2.1");
-                if(scoreSum + v2_2_3 !== v2_2_1) addErr("คะแนน+โหวตโน ไม่เท่ากับ 2.2.1");
+                if(scoreSum !== v2_2_1) addErr("คะแนนรวม ไม่เท่ากับ 2.2.1");
             }
 
             // Generate HTML Content
@@ -450,7 +459,7 @@
                 <div class="sum-head">ส่วนที่ 2 : บัตรเลือกตั้ง</div>
                 <div class="sum-row"><span class="sum-label">2.1 บัตรจัดสรร</span><span class="sum-val">${v2_1}</span></div>
                 <div class="sum-row"><span class="sum-label">2.2 บัตรที่ใช้</span><span class="sum-val">${v2_2}</span></div>
-                <div class="sum-row sum-sub"><span class="sum-label">2.2.1 บัตรดี</span><span class="sum-val">${v2_2_1}</span></div>
+                <div class="sum-row sum-sub"><span class="sum-label">2.2.1 บัตรดี (คะแนน)</span><span class="sum-val">${v2_2_1}</span></div>
                 <div class="sum-row sum-sub"><span class="sum-label">2.2.2 บัตรเสีย</span><span class="sum-val">${v2_2_2}</span></div>
                 <div class="sum-row sum-sub"><span class="sum-label">2.2.3 ไม่เลือกใคร</span><span class="sum-val">${v2_2_3}</span></div>
                 <div class="sum-row"><span class="sum-label">2.3 บัตรเหลือ</span><span class="sum-val">${v2_3}</span></div>
@@ -458,13 +467,11 @@
                 <div class="sum-head">ส่วนที่ 3 : คะแนนผู้สมัคร</div>
             `;
 
-            // Candidates Loop
             document.querySelectorAll('.cand-score').forEach((inp, idx) => {
                 const s = parseInt(inp.value) || 0;
                 listHtml += `<div class="sum-row sum-sub"><span class="sum-label">เบอร์ ${idx+1}</span><span class="sum-val">${s}</span></div>`;
             });
 
-            // Total Score
             listHtml += `
                 <div class="sum-row mt-2 pt-2 border-t border-gray-400 bg-yellow-50">
                     <span class="sum-label font-bold text-black">3. รวมคะแนนทั้งสิ้น</span>
