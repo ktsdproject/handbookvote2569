@@ -3,139 +3,529 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>คู่มือเจ้าพนักงานผู้ดำเนินการเลือกตั้ง 2569</title>
+    <title>คู่มือ กปน. & โปรแกรมช่วยคำนวณ 2569</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
     <style>
-        body { font-family: 'Sarabun', sans-serif; background-color: #f1f5f9; }
-        .modal-active { overflow: hidden; }
+        body { font-family: 'Sarabun', sans-serif; background-color: #f1f5f9; -webkit-tap-highlight-color: transparent; }
+        
+        /* General Utils */
         .glass { background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px); }
         .card-hover { transition: all 0.2s ease; }
         .card-hover:hover { transform: translateY(-2px); box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1); }
+        .bg-gradient-calc { background: linear-gradient(135deg, #0f766e 0%, #14b8a6 100%); }
+        .bg-gradient-518 { background: linear-gradient(135deg, #4f46e5 0%, #6366f1 100%); }
+        .animate-pop { animation: pop-in 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards; }
+        .animate-fade-in { animation: fadeIn 0.3s ease-in-out; }
+        @keyframes pop-in { 0% { transform: scale(0.8); opacity: 0; } 100% { transform: scale(1); opacity: 1; } }
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+        
+        /* Inputs & Validation */
+        .input-518 { width: 100%; text-align: center; font-size: 1.25rem; font-weight: bold; border: 1px solid #cbd5e1; border-radius: 0.5rem; padding: 0.5rem; transition: all 0.2s; background: white; }
+        .input-518:focus { outline: none; border-color: #4f46e5; ring: 2px; box-shadow: 0 0 0 2px rgba(79, 70, 229, 0.2); }
+        .input-error { border-color: #ef4444 !important; background-color: #fef2f2 !important; }
+        .input-error:focus { box-shadow: 0 0 0 2px rgba(239, 68, 68, 0.2) !important; }
+
+        /* Nav & Scroll */
+        .tab-btn.active { color: #2563eb; }
+        .tab-btn.active i { transform: translateY(-2px); }
+        ::-webkit-scrollbar { width: 0px; background: transparent; }
     </style>
 </head>
-<body class="pb-10">
+<body class="pb-32">
 
-    <header class="bg-gradient-to-r from-blue-900 to-indigo-800 text-white py-10 px-4 text-center shadow-xl mb-8">
-        <h1 class="text-2xl md:text-3xl font-bold">คู่มือเจ้าพนักงานผู้ดำเนินการเลือกตั้ง 2569</h1>
-        <p class="mt-2 text-blue-200">ระบบรวบรวมข้อมูลวิดีโอสาธิตและคู่มือการปฏิบัติงาน</p>
-    </header>
+    <section id="page-manual" class="block animate-fade-in">
+        <header class="bg-gradient-to-r from-blue-900 to-indigo-800 text-white py-10 px-4 text-center shadow-xl mb-8">
+            <h1 class="text-2xl md:text-3xl font-bold">คู่มือ กปน. เลือกตั้ง 69</h1>
+            <p class="mt-2 text-blue-200">ระบบรวบรวมวิดีโอและคู่มือปฏิบัติงาน</p>
+        </header>
 
-    <main class="container mx-auto px-4 max-w-4xl">
-
-        <section class="mb-10">
-            <h2 class="text-xl font-bold mb-4 text-orange-600 flex items-center">
-                <span class="bg-orange-600 w-2 h-8 rounded mr-3"></span>
-                สำหรับการปฏิบัติงานวันที่ 1 กุมภาพันธ์ 2569
-            </h2>
-            <div class="grid gap-3">
-                <button onclick="playMedia('video', 'jGwP_ELW1R4')" class="flex items-center p-4 bg-white border rounded-xl shadow-sm card-hover text-left group">
-                    <div class="bg-red-100 text-red-600 p-3 rounded-full mr-4 group-hover:bg-red-600 group-hover:text-white transition">▶</div>
-                    <div>
-                        <div class="font-bold text-slate-800 leading-tight">Video สาธิตการปฏิบัติงาน สำหรับเจ้าพนักงานผู้ดำเนินการเลือกตั้งล่วงหน้านอกเขต</div>
-                    </div>
-                </button>
-
-                <button onclick="playMedia('pdf', '1LJzjZTS9i4aZpNR5wb5fcbS7PuE1Hygg')" class="p-4 bg-white border rounded-xl shadow-sm card-hover text-left flex justify-between items-center group">
-                    <span class="text-slate-700 font-medium">คู่มือการปฏิบัติงานการออกเสียงลงคะแนนเลือกตั้งสมาชิกสภาผู้แทนราษฎร ณ ที่เลือกตั้งกลางนอกเขตเลือกตั้ง และนอกเขตออกเสียงประชามติ</span>
-                    <span class="ml-4 text-blue-600 font-bold shrink-0">เปิดอ่าน</span>
-                </button>
-
-                <button onclick="playMedia('pdf', '1mABikuUnkLT_LvagEKfqcWoc02sUcPng')" class="p-4 bg-white border rounded-xl shadow-sm card-hover text-left flex justify-between items-center group">
-                    <span class="text-slate-700 font-medium">คู่มือการปฏิบัติงานการออกเสียงลงคะแนนเลือกตั้งสมาชิกสภาผู้แทนราษฎร ณ ที่เลือกตั้งกลางสำหรับผู้พิการหรือทุพลภาพ ผู้สูงอายุ</span>
-                    <span class="ml-4 text-blue-600 font-bold shrink-0">เปิดอ่าน</span>
-                </button>
-
-                <button onclick="playMedia('pdf', '1ZUpRb1CQdMgMY4WzdAo-FVr2Cs12RanI')" class="p-4 bg-white border border-blue-200 rounded-xl shadow-sm card-hover text-left flex justify-between items-center bg-blue-50">
+        <main class="container mx-auto px-4 max-w-4xl">
+            <section class="mb-10">
+                <h2 class="text-xl font-bold mb-4 text-orange-600 flex items-center">
+                    <span class="bg-orange-600 w-2 h-8 rounded mr-3"></span>
+                    1 ก.พ. 69 (ล่วงหน้า)
+                </h2>
+                <div class="grid gap-3">
+                    <button onclick="playMedia('video', 'jGwP_ELW1R4')" class="flex items-center p-4 bg-white border rounded-xl shadow-sm card-hover text-left group">
+                        <div class="bg-red-100 text-red-600 p-3 rounded-full mr-4 group-hover:bg-red-600 group-hover:text-white transition">▶</div>
+                        <div><div class="font-bold text-slate-800 leading-tight">Video สาธิตการปฏิบัติงาน (ล่วงหน้า)</div></div>
+                    </button>
+                    <button onclick="playMedia('pdf', '1LJzjZTS9i4aZpNR5wb5fcbS7PuE1Hygg')" class="p-4 bg-white border rounded-xl shadow-sm card-hover text-left flex justify-between items-center group">
+                        <span class="text-slate-700 font-medium">คู่มือการปฏิบัติงาน (นอกเขต)</span>
+                        <span class="ml-4 text-blue-600 font-bold shrink-0">เปิดอ่าน</span>
+                    </button>
+                    <button onclick="playMedia('pdf', '1mABikuUnkLT_LvagEKfqcWoc02sUcPng')" class="p-4 bg-white border rounded-xl shadow-sm card-hover text-left flex justify-between items-center group">
+                        <span class="text-slate-700 font-medium">คู่มือการปฏิบัติงาน (คนพิการ/สูงอายุ)</span>
+                        <span class="ml-4 text-blue-600 font-bold shrink-0">เปิดอ่าน</span>
+                    </button>
+                    <button onclick="playMedia('pdf', '1ZUpRb1CQdMgMY4WzdAo-FVr2Cs12RanI')" class="p-4 bg-white border border-blue-200 rounded-xl shadow-sm card-hover text-left flex justify-between items-center bg-blue-50">
                     <span class="text-blue-800 font-bold">คำสั่งแต่งตั้ง กปน. รปภ. (ผู้ปฏิบัติงานวันที่ 1 ก.พ. 69)</span>
                     <span class="ml-4 text-blue-600 font-bold shrink-0">เปิดดู</span>
                 </button>
-            </div>
-        </section>
+                </div>
+            </section>
 
-        <section class="mb-10">
-            <h2 class="text-xl font-bold mb-4 text-blue-700 flex items-center">
-                <span class="bg-blue-700 w-2 h-8 rounded mr-3"></span>
-                สำหรับการปฏิบัติงานวันที่ 8 กุมภาพันธ์ 2569
-            </h2>
-            <div class="grid gap-3">
-                <button onclick="playMedia('video', 'Z6HEXaqEZDg')" class="flex items-center p-4 bg-white border rounded-xl shadow-sm card-hover text-left group">
-                    <div class="bg-red-100 text-red-600 p-3 rounded-full mr-4 group-hover:bg-red-600 group-hover:text-white transition">▶</div>
-                    <div>
-                        <div class="font-bold text-slate-800 leading-tight">Video สาธิตการปฏิบัติงาน สำหรับเจ้าพนักงานผู้ดำเนินการเลือกตั้ง และเจ้าพนักงานผู้ดำเนินการออกเสียงประชามติ</div>
+            <section class="mb-10">
+                <h2 class="text-xl font-bold mb-4 text-blue-700 flex items-center">
+                    <span class="bg-blue-700 w-2 h-8 rounded mr-3"></span>
+                    8 ก.พ. 69 (วันจริง)
+                </h2>
+                <div class="grid gap-3">
+                    <button onclick="playMedia('video', '0loBdJvSalw')" class="flex items-center p-4 bg-white border rounded-xl shadow-sm card-hover text-left group">
+                        <div class="bg-red-100 text-red-600 p-3 rounded-full mr-4 group-hover:bg-red-600 group-hover:text-white transition">▶</div>
+                        <div>
+                            <div class="font-bold text-slate-800 leading-tight">การปฏิบัติหน้าที่ กปน./กปส. (ตอนที่ 1)</div>
+                            <div class="text-xs text-gray-500 mt-1">เลือกตั้ง ส.ส. พร้อมประชามติ</div>
+                        </div>
+                    </button>
+
+                    <button onclick="playMedia('video', 'ldVnTv37fQs')" class="flex items-center p-4 bg-white border rounded-xl shadow-sm card-hover text-left group">
+                        <div class="bg-red-100 text-red-600 p-3 rounded-full mr-4 group-hover:bg-red-600 group-hover:text-white transition">▶</div>
+                        <div>
+                            <div class="font-bold text-slate-800 leading-tight">การปฏิบัติหน้าที่ กปน./กปส. (ตอนที่ 2)</div>
+                            <div class="text-xs text-gray-500 mt-1">เลือกตั้ง ส.ส. พร้อมประชามติ</div>
+                        </div>
+                    </button>
+
+                    <button onclick="playMedia('video', 'Io5wNXjT_mA')" class="flex items-center p-4 bg-white border rounded-xl shadow-sm card-hover text-left group">
+                        <div class="bg-red-100 text-red-600 p-3 rounded-full mr-4 group-hover:bg-red-600 group-hover:text-white transition">▶</div>
+                        <div>
+                            <div class="font-bold text-slate-800 leading-tight">การใช้สิทธิและนับคะแนน (นอกเขต)</div>
+                            <div class="text-xs text-gray-500 mt-1">ออกเสียงประชามติ</div>
+                        </div>
+                    </button>
+
+                    <button onclick="playMedia('pdf', '1XoS0kD69xCgWugAywhSxuxrbJw_qGJ6c')" class="p-4 bg-white border rounded-xl shadow-sm card-hover text-left flex justify-between items-center group">
+                        <span class="text-slate-700 font-medium">คู่มือปฏิบัติงาน (วันเลือกตั้ง)</span>
+                        <span class="ml-4 text-blue-600 font-bold shrink-0">เปิดอ่าน</span>
+                    </button>
+                    
+                    <div class="p-4 bg-gray-100 border border-dashed border-gray-400 rounded-xl flex justify-between items-center text-gray-500">
+                        <span class="font-medium text-sm">คำสั่งแต่งตั้ง กปน. (8 ก.พ.)</span>
+                        <span class="italic text-xs text-red-500 font-bold underline">รอไฟล์</span>
                     </div>
+                </div>
+            </section>
+        </main>
+    </section>
+
+    <section id="page-tools" class="hidden animate-fade-in">
+        
+        <div class="bg-gradient-calc text-white pb-24 pt-10 px-4 text-center shadow-lg rounded-b-[2rem]">
+            <h1 class="text-3xl font-bold mb-2">โปรแกรมช่วยคำนวณ</h1>
+            <p class="text-teal-100 opacity-90">เครื่องมือสำหรับ กรรมการประจำหน่วย (กปน.)</p>
+        </div>
+
+        <div class="max-w-md mx-auto -mt-16 px-4 pb-4">
+            
+            <div id="tool-menu" class="space-y-4">
+                <button onclick="showTool('percent')" class="w-full bg-white rounded-2xl shadow-xl p-6 flex items-center justify-between hover:bg-teal-50 transition card-hover">
+                    <div class="flex items-center gap-4">
+                        <div class="w-14 h-14 bg-teal-100 rounded-full flex items-center justify-center text-teal-600 text-2xl"><i class="fa-solid fa-percent"></i></div>
+                        <div class="text-left">
+                            <h3 class="font-bold text-gray-800 text-lg">คำนวณร้อยละ</h3>
+                            <p class="text-sm text-gray-500">หา % ผู้มาใช้สิทธิแบบเร่งด่วน</p>
+                        </div>
+                    </div>
+                    <i class="fa-solid fa-chevron-right text-gray-300"></i>
                 </button>
 
-                <button onclick="playMedia('pdf', '1XoS0kD69xCgWugAywhSxuxrbJw_qGJ6c')" class="p-4 bg-white border rounded-xl shadow-sm card-hover text-left flex justify-between items-center group">
-                    <span class="text-slate-700 font-medium">คู่มือปฏิบัติงาน สำหรับเจ้าพนักงานผู้ดำเนินการเลือกตั้ง และเจ้าพนักงานผู้ดำเนินการออกเสียงประชามติ</span>
-                    <span class="ml-4 text-blue-600 font-bold shrink-0">เปิดอ่าน</span>
+                <button onclick="showTool('518')" class="w-full bg-white rounded-2xl shadow-xl p-6 flex items-center justify-between hover:bg-indigo-50 transition card-hover">
+                    <div class="flex items-center gap-4">
+                        <div class="w-14 h-14 bg-indigo-100 rounded-full flex items-center justify-center text-indigo-600 text-2xl"><i class="fa-solid fa-file-invoice-dollar"></i></div>
+                        <div class="text-left">
+                            <h3 class="font-bold text-gray-800 text-lg">ตรวจสอบ 5/18</h3>
+                            <p class="text-sm text-gray-500">เช็คยอดบัตร/คะแนน (แจ้งเตือนทันที)</p>
+                        </div>
+                    </div>
+                    <i class="fa-solid fa-chevron-right text-gray-300"></i>
                 </button>
+            </div>
 
-                <button onclick="playMedia('pdf', '1aSWUIFGxQjNXRB7p2A39sL_hjyBfORyE')" class="p-4 bg-white border rounded-xl shadow-sm card-hover text-left flex justify-between items-center group">
-                    <span class="text-slate-700 font-medium">ขั้้นตอนการปฏิบัติสำหรับเจ้าพนักงานผู้ดำเนินการเลือกตั้งและเจ้าพนักงานผู้ดำเนินการประจำหน่วยออกเสียงประชามติ</span>
-                    <span class="ml-4 text-blue-600 font-bold shrink-0">เปิดอ่าน</span>
-                </button>
+            <div id="view-percent" class="hidden bg-white rounded-2xl shadow-xl p-6 space-y-5 relative">
+                <button onclick="showTool('menu')" class="absolute top-4 right-4 text-gray-400 hover:text-gray-600"><i class="fa-solid fa-xmark text-xl"></i></button>
+                <h3 class="font-bold text-teal-700 border-b pb-2">สูตรคำนวณร้อยละ (%)</h3>
+                
+                <div class="space-y-4">
+                    <div>
+                        <label class="block text-blue-800 font-bold mb-1 text-sm">ชาย (ใช้สิทธิ)</label>
+                        <input type="number" id="calc-male" placeholder="0" class="input-518 text-blue-600">
+                    </div>
+                    <div>
+                        <label class="block text-pink-800 font-bold mb-1 text-sm">หญิง (ใช้สิทธิ)</label>
+                        <input type="number" id="calc-female" placeholder="0" class="input-518 text-pink-600">
+                    </div>
+                    <div>
+                        <label class="block text-gray-600 font-bold mb-1 text-sm">ผู้มีสิทธิทั้งหมด</label>
+                        <input type="number" id="calc-total" placeholder="0" class="input-518 bg-gray-50">
+                    </div>
+                </div>
 
-                <div class="p-4 bg-gray-100 border border-dashed border-gray-400 rounded-xl flex justify-between items-center text-gray-500">
-                    <span class="font-medium text-sm">คำสั่งแต่งตั้ง กปน. กปส. รปภ. (ปฏิบัติงานวันที่ 8 ก.พ. 69)</span>
-                    <span class="italic text-xs text-red-500 font-bold underline">รอไฟล์</span>
+                <button onclick="calculateTurnout()" class="w-full bg-teal-600 hover:bg-teal-700 text-white font-bold py-4 rounded-xl shadow-lg mt-2">คำนวณร้อยละ</button>
+
+                <div id="calc-result-box" class="hidden bg-gray-50 rounded-xl p-4 text-center border border-gray-200 mt-4">
+                    <p class="text-sm text-gray-500">รวมผู้มาใช้สิทธิ</p>
+                    <h3 id="res-sum-people" class="text-2xl font-black text-gray-800">0 คน</h3>
+                    <div class="my-2 h-2 bg-gray-200 rounded-full overflow-hidden">
+                        <div id="res-progress-bar" class="bg-teal-500 h-full w-0 transition-all duration-500"></div>
+                    </div>
+                    <p class="text-teal-600 font-bold text-3xl" id="res-percent">0.00%</p>
                 </div>
             </div>
-        </section>
 
-        <section>
-            <h2 class="text-xl font-bold mb-4 text-slate-700 flex items-center">
-                <span class="bg-slate-700 w-2 h-8 rounded mr-3"></span>
-                กรณีพิเศษ
-            </h2>
-            <div class="grid gap-3">
-                <button onclick="playMedia('pdf', '1RLgeXhAZ3RbkMoshsy_Inkyxg1UJc_nK')" class="p-4 bg-white border rounded-xl shadow-sm card-hover text-left flex justify-between items-center group border-l-4 border-l-red-500">
-                    <span class="text-slate-700 font-bold italic">กรณีเพิ่มชื่อท้ายหน่วย</span>
-                    <span class="ml-4 text-blue-600 font-bold shrink-0">เปิดอ่าน</span>
+            <div id="view-518" class="hidden bg-white rounded-2xl shadow-xl p-4 md:p-6 space-y-6 relative">
+                <button onclick="showTool('menu')" class="absolute top-4 right-4 text-gray-400 hover:text-gray-600 z-10"><i class="fa-solid fa-xmark text-xl"></i></button>
+                <div class="border-b pb-2">
+                    <h3 class="font-bold text-indigo-700 text-lg">ตรวจสอบ 5/18</h3>
+                    <p class="text-xs text-gray-500">ระบบจะแจ้งเตือนตัวหนังสือสีแดงเมื่อตัวเลขผิดปกติ</p>
+                </div>
+
+                <div class="space-y-4">
+                    <h4 class="font-bold text-gray-700 bg-gray-100 p-2 rounded">1. จำนวนผู้มีสิทธิเลือกตั้ง</h4>
+                    <div>
+                        <div class="flex items-center justify-between gap-2">
+                            <label class="text-sm w-2/3">1.1 ตามบัญชีรายชื่อ</label>
+                            <input type="number" id="inp-1-1" class="input-518 w-1/3 input-realtime" placeholder="0">
+                        </div>
+                    </div>
+                    <div>
+                        <div class="flex items-center justify-between gap-2">
+                            <label class="text-sm w-2/3">1.2 มาแสดงตน</label>
+                            <input type="number" id="inp-1-2" class="input-518 w-1/3 input-realtime" placeholder="0">
+                        </div>
+                        <div id="err-1-2" class="hidden text-xs text-red-500 text-right mt-1 font-bold"></div>
+                    </div>
+                </div>
+
+                <div class="space-y-4">
+                    <h4 class="font-bold text-gray-700 bg-gray-100 p-2 rounded">2. จำนวนบัตรเลือกตั้ง</h4>
+                    <div>
+                        <div class="flex items-center justify-between gap-2">
+                            <label class="text-sm w-2/3">2.1 บัตรจัดสรร (รับมา)</label>
+                            <input type="number" id="inp-2-1" class="input-518 w-1/3 input-realtime" placeholder="0">
+                        </div>
+                        <div id="err-2-1" class="hidden text-xs text-red-500 text-right mt-1 font-bold"></div>
+                    </div>
+                    <div>
+                        <div class="flex items-center justify-between gap-2">
+                            <label class="text-sm w-2/3">2.2 บัตรที่ใช้ (หย่อนลงหีบ)</label>
+                            <input type="number" id="inp-2-2" class="input-518 w-1/3 input-realtime" placeholder="0">
+                        </div>
+                        <div id="err-2-2" class="hidden text-xs text-red-500 text-right mt-1 font-bold"></div>
+                    </div>
+                    <div class="bg-indigo-50 p-3 rounded-lg space-y-3 border border-indigo-100">
+                        <p class="text-xs text-indigo-600 font-bold mb-1">รายละเอียดบัตรที่ใช้ (ต้องรวมกันได้เท่าข้อ 2.2)</p>
+                        <div class="flex items-center justify-between gap-2">
+                            <label class="text-sm text-gray-600">2.2.1 บัตรดี</label>
+                            <input type="number" id="inp-2-2-1" class="input-518 w-24 bg-white input-realtime" placeholder="0">
+                        </div>
+                        <div class="flex items-center justify-between gap-2">
+                            <label class="text-sm text-gray-600">2.2.2 บัตรเสีย</label>
+                            <input type="number" id="inp-2-2-2" class="input-518 w-24 bg-white input-realtime" placeholder="0">
+                        </div>
+                        <div class="flex items-center justify-between gap-2">
+                            <label class="text-sm text-gray-600">2.2.3 ไม่เลือกใคร</label>
+                            <input type="number" id="inp-2-2-3" class="input-518 w-24 bg-white input-realtime" placeholder="0">
+                        </div>
+                        <div id="err-sum-2-2" class="hidden text-xs text-red-500 text-center mt-1 font-bold bg-white p-1 rounded border border-red-200"></div>
+                    </div>
+                    <div>
+                        <div class="flex items-center justify-between gap-2">
+                            <label class="text-sm w-2/3">2.3 บัตรเหลือ</label>
+                            <input type="number" id="inp-2-3" class="input-518 w-1/3 input-realtime" placeholder="0">
+                        </div>
+                        <div id="err-sum-2-1" class="hidden text-xs text-red-500 text-right mt-1 font-bold"></div>
+                    </div>
+                </div>
+
+                <div class="space-y-3">
+                    <h4 class="font-bold text-gray-700 bg-gray-100 p-2 rounded flex justify-between items-center">3. คะแนนผู้สมัคร</h4>
+                    <div class="flex gap-2 items-center bg-yellow-50 p-2 rounded border border-yellow-200 mb-2">
+                        <label class="text-sm font-bold text-yellow-800">จำนวนผู้สมัคร:</label>
+                        <input type="number" id="num-candidates" class="input-518 h-10 w-16 bg-white text-center" value="3" min="1">
+                        <button onclick="generateCandidateInputs()" class="bg-yellow-600 text-white text-sm px-3 py-2 rounded shadow">ตั้งค่า</button>
+                    </div>
+                    <div id="candidate-list" class="space-y-2 max-h-60 overflow-y-auto pr-1"></div>
+                    <div class="flex items-center justify-between pt-2 border-t mt-2">
+                        <span class="font-bold text-gray-700">รวมคะแนนทั้งสิ้น</span>
+                        <span id="sum-scores" class="text-xl font-black text-indigo-700">0</span>
+                    </div>
+                    <div id="err-scores" class="hidden text-xs text-red-500 text-right mt-1 font-bold"></div>
+                </div>
+
+                <button onclick="showSummaryCard()" class="w-full bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-700 hover:to-purple-700 text-white font-bold py-4 rounded-xl shadow-lg flex items-center justify-center gap-2 text-lg">
+                    <i class="fa-solid fa-camera"></i> สรุปผล (แคปหน้าจอ)
                 </button>
             </div>
-        </section>
+        </div>
+    </section>
 
-    </main>
+    <div id="capture-overlay" class="hidden fixed inset-0 z-[60] bg-black/80 flex items-center justify-center p-4 overflow-y-auto backdrop-blur-sm">
+        <div class="bg-white w-full max-w-sm rounded-none md:rounded-xl shadow-2xl overflow-hidden relative animate-pop">
+            <button onclick="document.getElementById('capture-overlay').classList.add('hidden')" class="absolute top-2 right-2 text-gray-400 hover:text-gray-800 p-2 z-10">
+                <i class="fa-solid fa-xmark text-2xl"></i>
+            </button>
+            
+            <div class="bg-indigo-900 text-white p-6 text-center">
+                <h3 class="text-xl font-bold">สรุปผลการนับคะแนน</h3>
+                <p class="text-indigo-200 text-sm">แบบตรวจสอบความถูกต้อง 5/18</p>
+            </div>
+            
+            <div class="p-6">
+                <div class="text-center mb-6">
+                    <div id="slip-icon" class="text-6xl mb-2"></div>
+                    <h2 id="slip-status" class="text-2xl font-black"></h2>
+                    <p id="slip-msg" class="text-sm text-gray-500 mt-1"></p>
+                </div>
+
+                <div class="space-y-3 text-sm border-t border-b border-gray-100 py-4">
+                    <div class="flex justify-between">
+                        <span class="text-gray-600">ผู้มาใช้สิทธิ (1.2)</span>
+                        <span id="slip-voters" class="font-bold text-gray-900">0</span>
+                    </div>
+                    <div class="flex justify-between">
+                        <span class="text-gray-600">บัตรที่ใช้ (2.2)</span>
+                        <span id="slip-used" class="font-bold text-gray-900">0</span>
+                    </div>
+                    <div class="flex justify-between">
+                        <span class="text-gray-600">บัตรดี (2.2.1)</span>
+                        <span id="slip-good" class="font-bold text-gray-900">0</span>
+                    </div>
+                    <div class="flex justify-between">
+                        <span class="text-gray-600">รวมคะแนนผู้สมัคร</span>
+                        <span id="slip-scores" class="font-bold text-gray-900">0</span>
+                    </div>
+                </div>
+
+                <div id="slip-errors" class="mt-4 hidden">
+                    <p class="text-xs font-bold text-red-500 mb-2 uppercase">รายการที่ต้องแก้ไข:</p>
+                    <ul id="slip-error-list" class="text-xs text-red-600 space-y-1 list-disc pl-4 bg-red-50 p-2 rounded"></ul>
+                </div>
+            </div>
+            
+            <div class="bg-gray-100 p-4 text-center text-xs text-gray-400 font-mono">
+                System Generated by Klongtoey IT
+            </div>
+        </div>
+    </div>
+
+    <nav class="fixed bottom-0 inset-x-0 bg-white border-t border-gray-200 flex justify-around items-center h-[80px] z-40 pb-2 shadow-[0_-5px_15px_rgba(0,0,0,0.05)]">
+        <button onclick="switchTab('manual')" id="tab-manual" class="tab-btn active flex-1 flex flex-col items-center justify-center text-blue-600 transition-all h-full">
+            <i class="fa-solid fa-book-open text-2xl mb-1"></i><span class="text-xs font-bold">คู่มือปฏิบัติงาน</span>
+        </button>
+        <button onclick="switchTab('tools')" id="tab-tools" class="tab-btn flex-1 flex flex-col items-center justify-center text-gray-400 hover:text-teal-600 transition-all h-full">
+            <i class="fa-solid fa-calculator text-2xl mb-1"></i><span class="text-xs font-bold">โปรแกรมช่วยคำนวณ</span>
+        </button>
+    </nav>
 
     <div id="mediaModal" class="fixed inset-0 z-50 hidden glass flex flex-col">
         <div class="p-4 flex justify-between items-center bg-white shadow-md">
             <span id="modalTitle" class="font-bold text-slate-700 truncate mr-4">กำลังแสดงเนื้อหา...</span>
-            <button onclick="closeMedia()" class="bg-red-600 text-white px-5 py-2 rounded-lg font-bold hover:bg-red-700 transition shrink-0 shadow-lg">ปิดหน้าต่าง</button>
+            <button onclick="closeMedia()" class="bg-red-600 text-white px-5 py-2 rounded-lg font-bold hover:bg-red-700 transition shrink-0 shadow-lg">ปิด</button>
         </div>
         <div class="flex-grow bg-slate-800 flex items-center justify-center p-2">
-            <iframe id="mainViewer" src="" class="w-full h-full max-w-6xl rounded shadow-2xl bg-white" frameborder="0" allow="autoplay; encrypted-media; fullscreen" allowfullscreen></iframe>
+            <iframe id="mainViewer" src="" class="w-full h-full max-w-6xl rounded shadow-2xl bg-white" frameborder="0" allowfullscreen></iframe>
         </div>
     </div>
 
     <script>
+        // --- 1. Navigation Logic ---
+        function switchTab(tab) {
+            const manual = document.getElementById('page-manual');
+            const tools = document.getElementById('page-tools');
+            const btnM = document.getElementById('tab-manual');
+            const btnT = document.getElementById('tab-tools');
+
+            if (tab === 'manual') {
+                manual.classList.remove('hidden'); tools.classList.add('hidden');
+                btnM.classList.add('active', 'text-blue-600'); btnM.classList.remove('text-gray-400');
+                btnT.classList.remove('active', 'text-teal-600'); btnT.classList.add('text-gray-400');
+            } else {
+                manual.classList.add('hidden'); tools.classList.remove('hidden');
+                btnT.classList.add('active', 'text-teal-600'); btnT.classList.remove('text-gray-400');
+                btnM.classList.remove('active', 'text-blue-600'); btnM.classList.add('text-gray-400');
+                showTool('menu'); // Reset to menu
+            }
+            window.scrollTo(0,0);
+        }
+
+        function showTool(tool) {
+            document.getElementById('tool-menu').classList.add('hidden');
+            document.getElementById('view-percent').classList.add('hidden');
+            document.getElementById('view-518').classList.add('hidden');
+
+            if(tool === 'menu') document.getElementById('tool-menu').classList.remove('hidden');
+            if(tool === 'percent') document.getElementById('view-percent').classList.remove('hidden');
+            if(tool === '518') {
+                document.getElementById('view-518').classList.remove('hidden');
+                if(document.getElementById('candidate-list').children.length === 0) generateCandidateInputs();
+                attachRealTimeValidation(); // Re-attach listeners
+            }
+        }
+
+        // --- 2. Percent Calculator ---
+        function calculateTurnout() {
+            const m = parseInt(document.getElementById('calc-male').value) || 0;
+            const f = parseInt(document.getElementById('calc-female').value) || 0;
+            const t = parseInt(document.getElementById('calc-total').value) || 0;
+            
+            if(t === 0) { alert('กรุณาระบุจำนวนผู้มีสิทธิ'); return; }
+            
+            const sum = m + f;
+            const per = (sum * 100) / t;
+            document.getElementById('res-sum-people').innerText = sum.toLocaleString() + " คน";
+            document.getElementById('res-percent').innerText = per.toFixed(2) + "%";
+            document.getElementById('res-progress-bar').style.width = Math.min(per, 100) + "%";
+            document.getElementById('calc-result-box').classList.remove('hidden');
+        }
+
+        // --- 3. 5/18 Real-time Logic ---
+        
+        // Generate Candidate Inputs
+        function generateCandidateInputs() {
+            const num = parseInt(document.getElementById('num-candidates').value) || 0;
+            const container = document.getElementById('candidate-list');
+            container.innerHTML = '';
+            for(let i=1; i<=num; i++) {
+                container.innerHTML += `
+                    <div class="flex items-center justify-between gap-2 p-1 bg-gray-50 rounded">
+                        <label class="text-sm font-semibold w-1/3">หมายเลข ${i}</label>
+                        <input type="number" class="cand-score input-518 w-2/3 h-10 border-gray-300 input-realtime" placeholder="คะแนน">
+                    </div>`;
+            }
+            attachRealTimeValidation(); // Attach listeners to new inputs
+        }
+
+        // Attach Listeners
+        function attachRealTimeValidation() {
+            document.querySelectorAll('.input-realtime').forEach(el => {
+                el.removeEventListener('input', validateRealTime); // Avoid duplicates
+                el.addEventListener('input', validateRealTime);
+            });
+        }
+
+        // Core Validation Function
+        function validateRealTime() {
+            const get = (id) => parseInt(document.getElementById(id).value) || 0;
+            const getSum = (cls) => Array.from(document.querySelectorAll(cls)).reduce((a,b) => a + (parseInt(b.value)||0), 0);
+            
+            // Values
+            const v1_1 = get('inp-1-1'); const v1_2 = get('inp-1-2');
+            const v2_1 = get('inp-2-1'); const v2_2 = get('inp-2-2');
+            const v2_2_1 = get('inp-2-2-1'); const v2_2_2 = get('inp-2-2-2'); const v2_2_3 = get('inp-2-2-3');
+            const v2_3 = get('inp-2-3');
+            const scoreSum = getSum('.cand-score');
+            
+            document.getElementById('sum-scores').innerText = scoreSum.toLocaleString();
+
+            // Helper to show/hide error
+            const showError = (id, condition, msg) => {
+                const el = document.getElementById(id);
+                if(condition) {
+                    el.innerText = msg; el.classList.remove('hidden');
+                } else {
+                    el.classList.add('hidden');
+                }
+            };
+            const markInput = (id, condition) => {
+                 const el = document.getElementById(id);
+                 condition ? el.classList.add('input-error') : el.classList.remove('input-error');
+            };
+
+            // Rule 1: 1.2 <= 1.1
+            const err1 = (v1_2 > v1_1 && v1_1 > 0);
+            showError('err-1-2', err1, `❌ ต้องไม่เกินผู้มีสิทธิ (${v1_1})`);
+            markInput('inp-1-2', err1);
+
+            // Rule 2: 1.2 == 2.2
+            const err2 = (v1_2 !== v2_2 && v2_2 > 0);
+            showError('err-2-2', err2, `❌ ต้องเท่ากับผู้แสดงตน (${v1_2})`);
+            markInput('inp-2-2', err2);
+
+            // Rule 3: 2.2 > 2.1
+            const err3 = (v2_2 > v2_1 && v2_1 > 0);
+            showError('err-2-1', err3, `❌ บัตรใช้เกินบัตรจัดสรร`); // Warn at 2.1 or 2.2 depending on flow, usually warn usage
+            markInput('inp-2-2', (v2_2 > v2_1)); 
+
+            // Rule 4: 2.2 Sum Check
+            const sum22 = v2_2_1 + v2_2_2 + v2_2_3;
+            const err4 = (sum22 !== v2_2 && v2_2 > 0);
+            showError('err-sum-2-2', err4, `❌ ยอดรวม (${sum22}) ไม่ตรงกับบัตรที่ใช้ (${v2_2})`);
+            
+            // Rule 5: 2.1 Sum Check
+            const sumTotal = v2_2 + v2_3;
+            const err5 = (sumTotal !== v2_1 && v2_1 > 0);
+            showError('err-sum-2-1', err5, `❌ ใช้+เหลือ (${sumTotal}) ไม่เท่ากับจัดสรร (${v2_1})`);
+
+            // Rule 6: Scores == Bad Dee
+            const err6 = (scoreSum !== v2_2_1 && v2_2_1 > 0);
+            showError('err-scores', err6, `❌ คะแนนรวม (${scoreSum}) ไม่เท่ากับบัตรดี (${v2_2_1})`);
+            
+            return !(err1 || err2 || err3 || err4 || err5 || err6);
+        }
+
+        // Summary Card
+        function showSummaryCard() {
+            const isValid = validateRealTime(); // Re-run validation
+            const get = (id) => parseInt(document.getElementById(id).value) || 0;
+            const getSum = (cls) => Array.from(document.querySelectorAll(cls)).reduce((a,b) => a + (parseInt(b.value)||0), 0);
+
+            // Populate Data
+            document.getElementById('slip-voters').innerText = get('inp-1-2');
+            document.getElementById('slip-used').innerText = get('inp-2-2');
+            document.getElementById('slip-good').innerText = get('inp-2-2-1');
+            document.getElementById('slip-scores').innerText = getSum('.cand-score');
+
+            const icon = document.getElementById('slip-icon');
+            const status = document.getElementById('slip-status');
+            const msg = document.getElementById('slip-msg');
+            const errList = document.getElementById('slip-errors');
+            const ul = document.getElementById('slip-error-list');
+
+            if(isValid) {
+                icon.innerText = "✅";
+                status.innerText = "ผ่าน";
+                status.className = "text-2xl font-black text-green-600";
+                msg.innerText = "ข้อมูลถูกต้องครบถ้วน";
+                errList.classList.add('hidden');
+            } else {
+                icon.innerText = "❌";
+                status.innerText = "ไม่ผ่าน";
+                status.className = "text-2xl font-black text-red-600";
+                msg.innerText = "กรุณาตรวจสอบข้อผิดพลาดด้านล่าง";
+                errList.classList.remove('hidden');
+                ul.innerHTML = ''; // Clear old errors
+                
+                // Add errors to list manually for summary
+                const addErr = (txt) => ul.innerHTML += `<li>${txt}</li>`;
+                if(get('inp-1-2') > get('inp-1-1')) addErr("ข้อ 1.2 มากกว่า 1.1");
+                if(get('inp-1-2') !== get('inp-2-2')) addErr("ข้อ 1.2 ไม่เท่ากับ 2.2");
+                if(get('inp-2-2-1')+get('inp-2-2-2')+get('inp-2-2-3') !== get('inp-2-2')) addErr("ผลรวมย่อย 2.2 ไม่ตรง");
+                if(get('inp-2-2')+get('inp-2-3') !== get('inp-2-1')) addErr("บัตรใช้+เหลือ ไม่เท่ากับ จัดสรร");
+                if(getSum('.cand-score') !== get('inp-2-2-1')) addErr("คะแนนรวม ไม่เท่ากับ บัตรดี");
+            }
+
+            document.getElementById('capture-overlay').classList.remove('hidden');
+        }
+
+        // --- 4. Media Logic ---
         function playMedia(type, id) {
             const modal = document.getElementById('mediaModal');
             const viewer = document.getElementById('mainViewer');
-            const title = document.getElementById('modalTitle');
-            let url = "";
-
-            if (type === 'video') {
-                title.innerText = "Video สาธิตการปฏิบัติงาน";
-                // ใช้ youtube-nocookie เพื่อลดปัญหาการโหลด
-                url = `https://www.youtube-nocookie.com/embed/${id}?autoplay=1&rel=0`;
-            } else {
-                title.innerText = "คู่มือการปฏิบัติงาน (เอกสาร PDF)";
-                // ใช้ preview mode ของ Google Drive
-                url = `https://drive.google.com/file/d/${id}/preview`;
-            }
-
+            let url = (type === 'video') 
+                ? `https://www.youtube-nocookie.com/embed/${id}?autoplay=1&rel=0`
+                : `https://drive.google.com/file/d/${id}/preview`;
+            
             viewer.src = url;
             modal.classList.remove('hidden');
-            document.body.classList.add('modal-active');
         }
 
         function closeMedia() {
-            const modal = document.getElementById('mediaModal');
-            const viewer = document.getElementById('mainViewer');
-            modal.classList.add('hidden');
-            viewer.src = "";
-            document.body.classList.remove('modal-active');
+            document.getElementById('mediaModal').classList.add('hidden');
+            document.getElementById('mainViewer').src = "";
         }
     </script>
 </body>
