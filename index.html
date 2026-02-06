@@ -2,14 +2,14 @@
 <html lang="th">
 <head>
     <meta charset="UTF-8">
-     <script async src="https://www.googletagmanager.com/gtag/js?id=G-W7Y2R6MGTQ"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-W7Y2R6MGTQ'); 
-</script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-W7Y2R6MGTQ"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-W7Y2R6MGTQ'); 
+    </script>
+    
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>คู่มือ กปน. & โปรแกรมช่วยคำนวณ สำนักงานเขตคลองเตย</title>
     <script src="https://cdn.tailwindcss.com"></script>
@@ -31,7 +31,7 @@
         
         /* Inputs */
         .input-518 { width: 100%; text-align: center; font-size: 1.25rem; font-weight: bold; border: 1px solid #cbd5e1; border-radius: 0.5rem; padding: 0.5rem; transition: all 0.2s; background: white; }
-        .input-518:focus { outline: none; border-color: #4f46e5; ring: 2px; box-shadow: 0 0 0 2px rgba(79, 70, 229, 0.2); }
+        .input-518:focus { outline: none; border-color: #4f46e5; ring: 2px; box-shadow: 0 0 0 2px rgba(79, 70, 229, 0.2); background-color: #eef2ff; }
         .input-error { border-color: #ef4444 !important; background-color: #fef2f2 !important; }
         
         /* Readonly Input Style */
@@ -166,7 +166,29 @@
                         <div class="w-14 h-14 bg-indigo-100 rounded-full flex items-center justify-center text-indigo-600 text-2xl"><i class="fa-solid fa-file-invoice-dollar"></i></div>
                         <div class="text-left">
                             <h3 class="font-bold text-gray-800 text-lg">ตรวจสอบ 5/18 (ส.ส.)</h3>
-                            <p class="text-sm text-gray-500">เช็คยอดบัตร/คะแนน (ช่วยคำนวณ)</p>
+                            <p class="text-sm text-gray-500">เช็คยอดบัตร/คะแนน (รายบุคคล)</p>
+                        </div>
+                    </div>
+                    <i class="fa-solid fa-chevron-right text-gray-300"></i>
+                </button>
+
+                <button onclick="showTool('518-party')" class="w-full bg-white rounded-2xl shadow-xl p-6 flex items-center justify-between hover:bg-purple-50 transition card-hover">
+                    <div class="flex items-center gap-4">
+                        <div class="w-14 h-14 bg-purple-100 rounded-full flex items-center justify-center text-purple-600 text-2xl"><i class="fa-solid fa-users-rectangle"></i></div>
+                        <div class="text-left">
+                            <h3 class="font-bold text-gray-800 text-lg">ตรวจสอบ 5/18 (บ.ช.)</h3>
+                            <p class="text-sm text-gray-500">เช็คยอดบัตร/คะแนน (พรรค)</p>
+                        </div>
+                    </div>
+                    <i class="fa-solid fa-chevron-right text-gray-300"></i>
+                </button>
+
+                <button onclick="showTool('referendum')" class="w-full bg-white rounded-2xl shadow-xl p-6 flex items-center justify-between hover:bg-orange-50 transition card-hover">
+                    <div class="flex items-center gap-4">
+                        <div class="w-14 h-14 bg-orange-100 rounded-full flex items-center justify-center text-orange-600 text-2xl"><i class="fa-solid fa-check-to-slot"></i></div>
+                        <div class="text-left">
+                            <h3 class="font-bold text-gray-800 text-lg">ตรวจสอบ อ.ส. 4/7</h3>
+                            <p class="text-sm text-gray-500">สำหรับออกเสียงประชามติ</p>
                         </div>
                     </div>
                     <i class="fa-solid fa-chevron-right text-gray-300"></i>
@@ -204,7 +226,7 @@
             <div id="view-518" class="hidden bg-white rounded-2xl shadow-xl p-4 md:p-6 space-y-6 relative">
                 <button onclick="showTool('menu')" class="absolute top-4 right-4 text-gray-400 hover:text-gray-600 z-10"><i class="fa-solid fa-xmark text-xl"></i></button>
                 <div class="border-b pb-2">
-                    <h3 class="font-bold text-indigo-700 text-lg">ตรวจสอบ 5/18 (ส.ส.)</h3>
+                    <h3 id="title-518" class="font-bold text-indigo-700 text-lg">ตรวจสอบ 5/18</h3>
                     <p class="text-xs text-gray-500">ระบบจะแจ้งเตือนตัวหนังสือสีแดงเมื่อตัวเลขผิดปกติ</p>
                 </div>
 
@@ -232,14 +254,14 @@
                         <p class="text-xs text-indigo-600 font-bold mb-1">รายละเอียดบัตรที่ใช้ (2.2)</p>
                         
                         <div class="text-xs text-orange-600 mb-2 border-l-4 border-orange-500 pl-2 bg-orange-50 p-1">
-                            * ของ ส.ส. <b>บัตรดี</b> คือบัตรที่มีคะแนนเท่านั้น
+                            * <b>บัตรดี</b> คือบัตรที่มีคะแนนเท่านั้น
                         </div>
 
                         <div class="flex items-center justify-between gap-2"><label class="text-sm text-gray-600 font-bold">2.2.1 บัตรดี (บัตรที่มีคะแนนเท่านั้น)</label><input type="number" id="inp-2-2-1" class="input-518 w-24 bg-white input-realtime" placeholder="0"></div>
                         <div class="flex items-center justify-between gap-2"><label class="text-sm text-gray-600">2.2.2 บัตรเสีย</label><input type="number" id="inp-2-2-2" class="input-518 w-24 bg-white input-realtime" placeholder="0"></div>
                         
                         <div class="text-xs text-orange-600 mt-2 border-l-4 border-orange-500 pl-2 bg-orange-50 p-1">
-                            * ของ ส.ส. <b>ไม่เลือกใคร</b> จะไม่รวมกับบัตรดี
+                            * <b>ไม่เลือกใคร</b> จะไม่รวมกับบัตรดี
                         </div>
                         <div class="flex items-center justify-between gap-2"><label class="text-sm text-gray-500 w-2/3">2.2.3 ไม่เลือกใคร (โหวตโน)</label><input type="number" id="inp-2-2-3" class="input-518 w-24 bg-white input-realtime" placeholder="0"></div>
                         
@@ -257,12 +279,14 @@
 
                 <div class="space-y-3">
                     <h4 class="font-bold text-gray-700 bg-gray-100 p-2 rounded flex justify-between items-center">3. คะแนนผู้สมัคร</h4>
-                    <div class="flex gap-2 items-center bg-yellow-50 p-2 rounded border border-yellow-200 mb-2">
+                    <div id="candidate-settings-area" class="flex gap-2 items-center bg-yellow-50 p-2 rounded border border-yellow-200 mb-2">
                         <label class="text-sm font-bold text-yellow-800">จำนวนผู้สมัคร:</label>
                         <input type="number" id="num-candidates" class="input-518 h-10 w-16 bg-white text-center" value="3" min="1">
                         <button onclick="generateCandidateInputs()" class="bg-yellow-600 text-white text-sm px-3 py-2 rounded shadow">ตั้งค่า</button>
                     </div>
-                    <div id="candidate-list" class="space-y-2 max-h-60 overflow-y-auto pr-1"></div>
+                    
+                    <div id="candidate-list" class="space-y-1 max-h-80 overflow-y-auto pr-1"></div>
+                    
                     <div class="flex items-center justify-between pt-2 border-t mt-2">
                         <span class="font-bold text-gray-700">รวมคะแนนทั้งสิ้น</span>
                         <span id="sum-scores" class="text-xl font-black text-indigo-700">0</span>
@@ -274,6 +298,86 @@
                     <i class="fa-solid fa-camera"></i> สรุปผล (ให้แคปหน้าจอ)
                 </button>
             </div>
+
+            <div id="view-referendum" class="hidden bg-white rounded-2xl shadow-xl p-4 md:p-6 space-y-6 relative">
+                <button onclick="showTool('menu')" class="absolute top-4 right-4 text-gray-400 hover:text-gray-600 z-10"><i class="fa-solid fa-xmark text-xl"></i></button>
+                <div class="border-b pb-2">
+                    <h3 class="font-bold text-orange-600 text-lg">ตรวจสอบ อ.ส. 4/7 (ประชามติ)</h3>
+                    <p class="text-xs text-gray-500">สำหรับนับคะแนนออกเสียงประชามติ</p>
+                </div>
+
+                <div class="space-y-4">
+                    <h4 class="font-bold text-gray-700 bg-gray-100 p-2 rounded">1. ผู้มีสิทธิออกเสียง</h4>
+                    <div><div class="flex items-center justify-between gap-2"><label class="text-sm w-2/3">1.1 ตามบัญชีรายชื่อ</label><input type="number" id="ref-1-1" class="input-518 w-1/3 input-realtime-ref" placeholder="0"></div></div>
+                    <div>
+                        <div class="flex items-center justify-between gap-2"><label class="text-sm w-2/3">1.2 มาแสดงตน</label><input type="number" id="ref-1-2" class="input-518 w-1/3 input-realtime-ref" placeholder="0"></div>
+                        <div id="err-ref-1-2" class="hidden text-xs text-red-500 text-right mt-1 font-bold"></div>
+                    </div>
+                </div>
+
+                <div class="space-y-4">
+                    <h4 class="font-bold text-gray-700 bg-gray-100 p-2 rounded">2. จำนวนบัตรออกเสียง</h4>
+                    <div>
+                        <div class="flex items-center justify-between gap-2"><label class="text-sm w-2/3">2.1 บัตรที่จัดสรร</label><input type="number" id="ref-2-1" class="input-518 w-1/3 input-realtime-ref" placeholder="0"></div>
+                        <div id="err-ref-2-1" class="hidden text-xs text-red-500 text-right mt-1 font-bold"></div>
+                    </div>
+                    <div>
+                        <div class="flex items-center justify-between gap-2"><label class="text-sm w-2/3">2.2 บัตรที่ใช้</label><input type="number" id="ref-2-2" class="input-518 w-1/3 input-realtime-ref" placeholder="0"></div>
+                        <div id="err-ref-2-2" class="hidden text-xs text-red-500 text-right mt-1 font-bold"></div>
+                    </div>
+
+                    <div class="bg-orange-50 p-3 rounded-lg space-y-3 border border-orange-200">
+                        <p class="text-xs text-orange-700 font-bold mb-1">รายละเอียดบัตรที่ใช้ (2.2)</p>
+                        
+                        <div class="text-xs text-gray-700 mb-2 border-l-4 border-orange-500 pl-2 bg-white p-2 shadow-sm rounded">
+                            * <b>บัตรดี</b> <br>ประชามติ = (เห็นชอบ + ไม่เห็นชอบ + ไม่แสดงความเห็น)
+                        </div>
+
+                        <div class="flex items-center justify-between gap-2"><label class="text-sm text-gray-800 font-bold">2.2.1 บัตรดี </label><input type="number" id="ref-2-2-1" class="input-518 w-24 bg-white input-realtime-ref" placeholder="0"></div>
+                        <div class="flex items-center justify-between gap-2"><label class="text-sm text-gray-600">2.2.2 บัตรเสีย</label><input type="number" id="ref-2-2-2" class="input-518 w-24 bg-white input-realtime-ref" placeholder="0"></div>
+                        
+                        <div id="err-ref-sum-2-2" class="hidden text-xs text-red-500 text-center mt-1 font-bold bg-white p-1 rounded border border-red-200"></div>
+                    </div>
+
+                    <div>
+                        <div class="flex items-center justify-between gap-2">
+                            <label class="text-sm w-2/3 text-gray-600">2.3 บัตรเหลือ (ระบบคำนวณอัตโนมัติ)</label>
+                            <input type="number" id="ref-2-3" class="input-518 w-1/3 input-readonly" placeholder="รอ 2.1 และ 2.2" readonly>
+                        </div>
+                        <div id="err-ref-sum-2-1" class="hidden text-xs text-red-500 text-right mt-1 font-bold"></div>
+                    </div>
+                </div>
+
+                <div class="space-y-3">
+                    <h4 class="font-bold text-gray-700 bg-gray-100 p-2 rounded">3. ผลคะแนนออกเสียง</h4>
+                    
+                    <div class="space-y-2">
+                         <div class="flex items-center justify-between gap-3 p-2 rounded bg-green-50 border border-green-100">
+                            <label class="text-sm font-bold text-green-800">เห็นชอบ</label>
+                            <input type="number" id="ref-score-1" class="input-518 w-24 h-11 border-gray-300 input-realtime-ref shadow-sm" placeholder="คะแนน">
+                        </div>
+                         <div class="flex items-center justify-between gap-3 p-2 rounded bg-red-50 border border-red-100">
+                            <label class="text-sm font-bold text-red-800">ไม่เห็นชอบ</label>
+                            <input type="number" id="ref-score-2" class="input-518 w-24 h-11 border-gray-300 input-realtime-ref shadow-sm" placeholder="คะแนน">
+                        </div>
+                         <div class="flex items-center justify-between gap-3 p-2 rounded bg-gray-50 border border-gray-100">
+                            <label class="text-sm font-bold text-gray-600">ไม่แสดงความคิดเห็น</label>
+                            <input type="number" id="ref-score-3" class="input-518 w-24 h-11 border-gray-300 input-realtime-ref shadow-sm" placeholder="คะแนน">
+                        </div>
+                    </div>
+
+                    <div class="flex items-center justify-between pt-2 border-t mt-2">
+                        <span class="font-bold text-gray-700">รวมคะแนน (ต้องเท่ากับบัตรดี)</span>
+                        <span id="ref-sum-scores" class="text-xl font-black text-orange-600">0</span>
+                    </div>
+                    <div id="err-ref-scores" class="hidden text-xs text-red-500 text-right mt-1 font-bold"></div>
+                </div>
+
+                <button onclick="showSummaryCard()" class="w-full bg-gradient-to-r from-orange-500 to-red-500 hover:from-orange-600 hover:to-red-600 text-white font-bold py-4 rounded-xl shadow-lg flex items-center justify-center gap-2 text-lg">
+                    <i class="fa-solid fa-camera"></i> สรุปผล (ให้แคปหน้าจอ)
+                </button>
+            </div>
+
         </div>
     </section>
 
@@ -282,8 +386,8 @@
             <button onclick="document.getElementById('capture-overlay').classList.add('hidden')" class="absolute top-2 right-2 text-white hover:text-gray-200 p-2 z-10">
                 <i class="fa-solid fa-xmark text-2xl"></i>
             </button>
-            <div class="bg-indigo-900 text-white p-4 text-center shrink-0">
-                <h3 class="text-lg font-bold">สรุปผลการนับคะแนน 5/18</h3>
+            <div id="slip-header-bg" class="bg-indigo-900 text-white p-4 text-center shrink-0 transition-colors">
+                <h3 class="text-lg font-bold" id="slip-title">สรุปผลการนับคะแนน</h3>
                 <div id="slip-status-box" class="mt-2 inline-block px-4 py-1 rounded-full text-sm font-bold bg-white/20">
                     <span id="slip-icon"></span> <span id="slip-status"></span>
                 </div>
@@ -321,6 +425,18 @@
     </div>
 
     <script>
+        // --- Data: 57 Political Parties ---
+        const partyList = [
+            "พรรคไทยทรัพย์ทวี", "พรรคเพื่อชาติไทย", "พรรคใหม่", "พรรคมิติใหม่", "พรรครวมใจไทย", "พรรครวมไทยสร้างชาติ", "พรรคพลวัต", "พรรคประชาธิปไตยใหม่", "พรรคเพื่อไทย", "พรรคทางเลือกใหม่",
+            "พรรคเศรษฐกิจ", "พรรคเสรีรวมไทย", "พรรครวมพลังประชาชน", "พรรคท้องที่ไทย", "พรรคอนาคตไทย", "พรรคพลังเพื่อไทย", "พรรคไทยชนะ", "พรรคพลังสังคมใหม่", "พรรคสังคมประชาธิปไตย", "พรรคฟิวชัน",
+            "พรรคไทรวมพลัง", "พรรคก้าวอิสระ", "พรรคปวงชนไทย", "พรรควิชชั่นใหม่", "พรรคเพื่อชีวิตใหม่", "พรรคคลองไทย", "พรรคประชาธิปัตย์", "พรรคไทยก้าวหน้า", "พรรคไทยภักดี", "พรรคแรงงานสร้างชาติ",
+            "พรรคประชากรไทย", "พรรคครูไทยเพื่อประชาชน", "พรรคประชาชาติ", "พรรคสร้างอนาคตไทย", "พรรครักชาติ", "พรรคไทยพร้อม", "พรรคภูมิใจไทย", "พรรคพลังธรรมใหม่", "พรรคกรีน", "พรรคไทยธรรม",
+            "พรรคแผ่นดินธรรม", "พรรคกล้าธรรม", "พรรคพลังประชารัฐ", "พรรคโอกาสใหม่", "พรรคเป็นธรรม", "พรรคประชาชน", "พรรคประชาไทย", "พรรคไทยสร้างไทย", "พรรคไทยก้าวใหม่", "พรรคประชาอาสาชาติ",
+            "พรรคพร้อม", "พรรคเครือข่ายชาวนาแห่งประเทศไทย", "พรรคไทยพิทักษ์ธรรม", "พรรคความหวังใหม่", "พรรคไทยรวมไทย", "พรรคเพื่อบ้านเมือง", "พรรคพลังไทยรักชาติ"
+        ];
+        
+        let currentMode = 'mp'; // 'mp', 'party', 'referendum'
+
         // --- Navigation ---
         function switchTab(tab) {
             const manual = document.getElementById('page-manual');
@@ -344,12 +460,41 @@
             document.getElementById('tool-menu').classList.add('hidden');
             document.getElementById('view-percent').classList.add('hidden');
             document.getElementById('view-518').classList.add('hidden');
-            if(tool === 'menu') document.getElementById('tool-menu').classList.remove('hidden');
-            if(tool === 'percent') document.getElementById('view-percent').classList.remove('hidden');
+            document.getElementById('view-referendum').classList.add('hidden');
+            
+            if(tool === 'menu') {
+                document.getElementById('tool-menu').classList.remove('hidden');
+            }
+            if(tool === 'percent') {
+                document.getElementById('view-percent').classList.remove('hidden');
+            }
+            
+            // Logic for MP (518)
             if(tool === '518') {
+                currentMode = 'mp';
                 document.getElementById('view-518').classList.remove('hidden');
-                if(document.getElementById('candidate-list').children.length === 0) generateCandidateInputs();
+                document.getElementById('title-518').innerText = "ตรวจสอบ 5/18 (ส.ส.)";
+                document.getElementById('candidate-settings-area').classList.remove('hidden');
+                if(document.getElementById('candidate-list').querySelector('.is-party-mode') || document.getElementById('candidate-list').children.length === 0) {
+                     generateCandidateInputs();
+                }
                 attachRealTimeValidation();
+            }
+
+            // Logic for Party List (518-party)
+            if(tool === '518-party') {
+                currentMode = 'party';
+                document.getElementById('view-518').classList.remove('hidden');
+                document.getElementById('title-518').innerText = "ตรวจสอบ 5/18 (บ.ช.)";
+                document.getElementById('candidate-settings-area').classList.add('hidden');
+                generatePartyInputs();
+            }
+
+            // Logic for Referendum (4/7)
+            if(tool === 'referendum') {
+                currentMode = 'referendum';
+                document.getElementById('view-referendum').classList.remove('hidden');
+                attachRealTimeValidationRef();
             }
         }
 
@@ -367,7 +512,7 @@
             document.getElementById('calc-result-box').classList.remove('hidden');
         }
 
-        // --- 5/18 Logic (MP) ---
+        // --- 5/18 Logic (MP & Party) ---
         function generateCandidateInputs() {
             const num = parseInt(document.getElementById('num-candidates').value) || 0;
             const container = document.getElementById('candidate-list');
@@ -382,6 +527,33 @@
             attachRealTimeValidation();
         }
 
+        function generatePartyInputs() {
+            const container = document.getElementById('candidate-list');
+            container.innerHTML = '';
+            container.innerHTML = '<div class="hidden is-party-mode"></div>';
+            
+            partyList.forEach((name, i) => {
+                const num = i + 1;
+                const isEven = num % 2 === 0;
+                const bgClass = isEven ? 'bg-indigo-50/50' : 'bg-white';
+                const isEndOfGroup = (num % 5 === 0 && num !== partyList.length);
+                const borderClass = isEndOfGroup ? 'border-b-4 border-indigo-100 mb-2' : 'border-b border-gray-100';
+
+                container.innerHTML += `
+                    <div class="flex items-center justify-between gap-3 p-2 rounded ${bgClass} ${borderClass}">
+                        <div class="flex-none w-10 h-10 flex items-center justify-center bg-indigo-600 text-white rounded-full font-bold shadow-sm text-sm">
+                            ${num}
+                        </div>
+                        <div class="flex-grow min-w-0">
+                            <div class="text-xs font-bold text-gray-800 truncate">${name}</div>
+                            <div class="text-[10px] text-gray-400">พรรคการเมือง</div>
+                        </div>
+                        <input type="number" class="cand-score input-518 w-20 h-11 border-gray-300 input-realtime shadow-sm" placeholder="0">
+                    </div>`;
+            });
+            attachRealTimeValidation();
+        }
+
         function attachRealTimeValidation() {
             document.querySelectorAll('.input-realtime').forEach(el => {
                 el.removeEventListener('input', validateRealTime);
@@ -390,9 +562,12 @@
         }
 
         function validateRealTime() {
-            // --- Auto-fill Logic for 2.3 ---
-            const auto_2_1 = parseInt(document.getElementById('inp-2-1').value) || 0;
-            const auto_2_2 = parseInt(document.getElementById('inp-2-2').value) || 0;
+            const get = (id) => parseInt(document.getElementById(id).value) || 0;
+            const getSum = (cls) => Array.from(document.querySelectorAll(cls)).reduce((a,b) => a + (parseInt(b.value)||0), 0);
+            
+            // Auto-fill logic (MP/Party)
+            const auto_2_1 = get('inp-2-1');
+            const auto_2_2 = get('inp-2-2');
             if(auto_2_1 > 0 && auto_2_2 > 0) {
                 const rem = auto_2_1 - auto_2_2;
                 document.getElementById('inp-2-3').value = rem >= 0 ? rem : 0;
@@ -400,10 +575,6 @@
                 document.getElementById('inp-2-3').value = '';
             }
 
-            // --- Validation Logic ---
-            const get = (id) => parseInt(document.getElementById(id).value) || 0;
-            const getSum = (cls) => Array.from(document.querySelectorAll(cls)).reduce((a,b) => a + (parseInt(b.value)||0), 0);
-            
             const v1_1 = get('inp-1-1'); const v1_2 = get('inp-1-2');
             const v2_1 = get('inp-2-1'); const v2_2 = get('inp-2-2');
             const v2_2_1 = get('inp-2-2-1'); 
@@ -428,32 +599,102 @@
             const err2 = (v1_2 !== v2_2 && v2_2 > 0); showError('err-2-2', err2, `❌ ต้องเท่ากับผู้แสดงตน (${v1_2})`); markInput('inp-2-2', err2);
             const err3 = (v2_2 > v2_1 && v2_1 > 0); showError('err-2-1', err3, `❌ บัตรใช้เกินบัตรจัดสรร`); markInput('inp-2-2', (v2_2 > v2_1)); 
             
-            // MP Logic: 2.2 = 2.2.1 + 2.2.2 + 2.2.3
+            // Logic MP: Used = Good + Bad + NoVote
             const sum22 = v2_2_1 + v2_2_2 + v2_2_3; 
             const err4 = (sum22 !== v2_2 && v2_2 > 0); showError('err-sum-2-2', err4, `❌ ดี (${v2_2_1})+เสีย (${v2_2_2})+โน (${v2_2_3}) ≠ ใช้ (${v2_2})`);
             
-            // Auto-fill logic handles 2.3 value, but we still check consistency if 2.1 changes
             const sumTotal = v2_2 + v2_3; const err5 = (sumTotal !== v2_1 && v2_1 > 0); showError('err-sum-2-1', err5, `❌ ใช้+เหลือ (${sumTotal}) ไม่เท่ากับจัดสรร (${v2_1})`);
             
-            // MP Logic: Scores = 2.2.1
+            // Logic MP: Scores = Good Ballots
             const err6 = (scoreSum !== v2_2_1 && v2_2_1 > 0); showError('err-scores', err6, `❌ คะแนนรวม (${scoreSum}) ไม่เท่ากับบัตรดี (${v2_2_1})`);
             
             return !(err1 || err2 || err3 || err4 || err5 || err6);
         }
 
+        // --- Referendum Logic (4/7) ---
+        function attachRealTimeValidationRef() {
+             document.querySelectorAll('.input-realtime-ref').forEach(el => {
+                el.removeEventListener('input', validateRealTimeRef);
+                el.addEventListener('input', validateRealTimeRef);
+            });
+        }
+
+        function validateRealTimeRef() {
+            const get = (id) => parseInt(document.getElementById(id).value) || 0;
+            
+            // Auto-fill Ref 2.3
+            const r2_1 = get('ref-2-1');
+            const r2_2 = get('ref-2-2');
+            if(r2_1 > 0 && r2_2 > 0) {
+                const rem = r2_1 - r2_2;
+                document.getElementById('ref-2-3').value = rem >= 0 ? rem : 0;
+            } else if (r2_1 === 0 || r2_2 === 0) {
+                document.getElementById('ref-2-3').value = '';
+            }
+
+            const r1_1 = get('ref-1-1'); const r1_2 = get('ref-1-2');
+            const r2_3 = get('ref-2-3');
+            const r2_2_1 = get('ref-2-2-1'); // Good
+            const r2_2_2 = get('ref-2-2-2'); // Bad
+            
+            const score1 = get('ref-score-1'); // Yes
+            const score2 = get('ref-score-2'); // No
+            const score3 = get('ref-score-3'); // Abstain
+            const totalScore = score1 + score2 + score3;
+            
+            document.getElementById('ref-sum-scores').innerText = totalScore.toLocaleString();
+
+            const showError = (id, condition, msg) => {
+                const el = document.getElementById(id);
+                if(condition) { el.innerText = msg; el.classList.remove('hidden'); }
+                else { el.classList.add('hidden'); }
+            };
+            const markInput = (id, condition) => {
+                 const el = document.getElementById(id);
+                 condition ? el.classList.add('input-error') : el.classList.remove('input-error');
+            };
+
+            // Validation Rules
+            const err1 = (r1_2 > r1_1 && r1_1 > 0); showError('err-ref-1-2', err1, `❌ เกินผู้มีสิทธิ (${r1_1})`); markInput('ref-1-2', err1);
+            const err2 = (r2_2 !== r1_2 && r2_2 > 0); showError('err-ref-2-2', err2, `❌ ต้องเท่ากับผู้แสดงตน (${r1_2})`); markInput('ref-2-2', err2);
+            const err3 = (r2_2 > r2_1 && r2_1 > 0); showError('err-ref-2-1', err3, `❌ บัตรใช้เกินบัตรจัดสรร`); markInput('ref-2-2', (r2_2 > r2_1));
+
+            const sumTotal = r2_2 + r2_3;
+            const err4 = (sumTotal !== r2_1 && r2_1 > 0); showError('err-ref-sum-2-1', err4, `❌ ใช้+เหลือ (${sumTotal}) ไม่เท่ากับจัดสรร (${r2_1})`);
+
+            // Logic Ref: Used = Good + Bad (No "NoVote" box, it's in Good)
+            const sum22 = r2_2_1 + r2_2_2;
+            const err5 = (sum22 !== r2_2 && r2_2 > 0); showError('err-ref-sum-2-2', err5, `❌ ดี (${r2_2_1}) + เสีย (${r2_2_2}) ≠ ใช้ (${r2_2})`);
+
+            // Logic Ref: Good = Yes + No + Abstain
+            const err6 = (totalScore !== r2_2_1 && r2_2_1 > 0); showError('err-ref-scores', err6, `❌ ผลรวม (${totalScore}) ไม่เท่ากับบัตรดี (${r2_2_1})`);
+
+            return !(err1 || err2 || err3 || err4 || err5 || err6);
+        }
+
         // Summary Card
         function showSummaryCard() {
-            const isValid = validateRealTime();
-            const get = (id) => parseInt(document.getElementById(id).value) || 0;
-            const getSum = (cls) => Array.from(document.querySelectorAll(cls)).reduce((a,b) => a + (parseInt(b.value)||0), 0);
+            let isValid = false;
+            let listHtml = '';
             
-            const v1_1 = get('inp-1-1'); const v1_2 = get('inp-1-2');
-            const v2_1 = get('inp-2-1'); const v2_2 = get('inp-2-2');
-            const v2_2_1 = get('inp-2-2-1'); const v2_2_2 = get('inp-2-2-2'); const v2_2_3 = get('inp-2-2-3');
-            const v2_3 = get('inp-2-3');
-            const scoreSum = getSum('.cand-score');
+            // Header Styles
+            const header = document.getElementById('slip-header-bg');
+            if(currentMode === 'referendum') {
+                isValid = validateRealTimeRef();
+                header.classList.remove('bg-indigo-900', 'bg-purple-900');
+                header.classList.add('bg-orange-600');
+            } else {
+                isValid = validateRealTime();
+                header.classList.remove('bg-orange-600');
+                header.classList.add(currentMode === 'party' ? 'bg-purple-900' : 'bg-indigo-900');
+            }
+            
+            const titleEl = document.getElementById('slip-title');
+            if(currentMode === 'mp') titleEl.innerText = "สรุปผลการนับคะแนน (ส.ส.)";
+            else if(currentMode === 'party') titleEl.innerText = "สรุปผลการนับคะแนน (บ.ช.)";
+            else titleEl.innerText = "สรุปผลการนับคะแนน (อ.ส. 4/7)";
 
-            // Set Status
+            // Status Logic
             const statusBox = document.getElementById('slip-status-box');
             const icon = document.getElementById('slip-icon');
             const status = document.getElementById('slip-status');
@@ -469,42 +710,109 @@
                 statusBox.className = "mt-2 inline-block px-4 py-1 rounded-full text-sm font-bold bg-red-500 text-white";
                 errList.classList.remove('hidden');
                 ul.innerHTML = '';
-                const addErr = (txt) => ul.innerHTML += `<li>${txt}</li>`;
-                if(v1_2 > v1_1) addErr("1.2 มากกว่า 1.1");
-                if(v1_2 !== v2_2) addErr("1.2 ไม่เท่ากับ 2.2");
-                if(v2_2_1+v2_2_2+v2_2_3 !== v2_2) addErr("ดี+เสีย+โน ไม่เท่ากับ 2.2");
-                if(v2_2+v2_3 !== v2_1) addErr("2.2+2.3 ไม่เท่ากับ 2.1");
-                if(scoreSum !== v2_2_1) addErr("คะแนนรวม ไม่เท่ากับ 2.2.1");
             }
 
-            // Generate HTML Content
-            let listHtml = `
-                <div class="sum-head">ส่วนที่ 1 : ผู้มีสิทธิ</div>
-                <div class="sum-row"><span class="sum-label">1.1 ผู้มีสิทธิ (บัญชี)</span><span class="sum-val">${v1_1}</span></div>
-                <div class="sum-row"><span class="sum-label">1.2 ผู้แสดงตน</span><span class="sum-val">${v1_2}</span></div>
+            const get = (id) => parseInt(document.getElementById(id).value) || 0;
+            const addErr = (txt) => ul.innerHTML += `<li>${txt}</li>`;
+
+            // --- Generate HTML Content ---
+            if (currentMode === 'referendum') {
+                // Referendum Content
+                const r1_1 = get('ref-1-1'); const r1_2 = get('ref-1-2');
+                const r2_1 = get('ref-2-1'); const r2_2 = get('ref-2-2');
+                const r2_2_1 = get('ref-2-2-1'); const r2_2_2 = get('ref-2-2-2');
+                const r2_3 = get('ref-2-3');
+                const s1 = get('ref-score-1'); const s2 = get('ref-score-2'); const s3 = get('ref-score-3');
+                const total = s1 + s2 + s3;
+
+                // Ref Errors
+                if(!isValid) {
+                    if(r1_2 > r1_1) addErr("1.2 มากกว่า 1.1");
+                    if(r1_2 !== r2_2) addErr("1.2 ไม่เท่ากับ 2.2");
+                    if(r2_2_1 + r2_2_2 !== r2_2) addErr("ดี+เสีย ไม่เท่ากับ 2.2");
+                    if(r2_2 + r2_3 !== r2_1) addErr("2.2+2.3 ไม่เท่ากับ 2.1");
+                    if(total !== r2_2_1) addErr("รวมผลคะแนน ไม่เท่ากับบัตรดี");
+                }
+
+                listHtml = `
+                    <div class="sum-head text-orange-800 bg-orange-100">ส่วนที่ 1 : ผู้มีสิทธิออกเสียง</div>
+                    <div class="sum-row"><span class="sum-label">1.1 ตามบัญชีรายชื่อ</span><span class="sum-val">${r1_1}</span></div>
+                    <div class="sum-row"><span class="sum-label">1.2 มาแสดงตน</span><span class="sum-val">${r1_2}</span></div>
+                    
+                    <div class="sum-head text-orange-800 bg-orange-100">ส่วนที่ 2 : บัตรออกเสียง</div>
+                    <div class="sum-row"><span class="sum-label">2.1 บัตรจัดสรร</span><span class="sum-val">${r2_1}</span></div>
+                    <div class="sum-row"><span class="sum-label">2.2 บัตรที่ใช้</span><span class="sum-val">${r2_2}</span></div>
+                    <div class="sum-row sum-sub"><span class="sum-label font-bold text-gray-700">2.2.1 บัตรดี</span><span class="sum-val">${r2_2_1}</span></div>
+                    <div class="sum-row sum-sub"><span class="sum-label">2.2.2 บัตรเสีย</span><span class="sum-val">${r2_2_2}</span></div>
+                    <div class="sum-row"><span class="sum-label">2.3 บัตรเหลือ</span><span class="sum-val">${r2_3}</span></div>
+
+                    <div class="sum-head text-orange-800 bg-orange-100">ส่วนที่ 3 : ผลคะแนน</div>
+                    <div class="sum-row sum-sub bg-green-50"><span class="sum-label text-green-800 font-bold">เห็นชอบ</span><span class="sum-val">${s1}</span></div>
+                    <div class="sum-row sum-sub bg-red-50"><span class="sum-label text-red-800 font-bold">ไม่เห็นชอบ</span><span class="sum-val">${s2}</span></div>
+                    <div class="sum-row sum-sub bg-gray-50"><span class="sum-label text-gray-600 font-bold">ไม่แสดงความเห็น</span><span class="sum-val">${s3}</span></div>
+                    <div class="sum-row mt-2 pt-2 border-t border-gray-400 bg-orange-50">
+                        <span class="sum-label font-bold text-black">รวมคะแนน (บัตรดี)</span>
+                        <span class="sum-val text-orange-700 font-black text-lg">${total}</span>
+                    </div>
+                `;
+
+            } else {
+                // MP & Party Content
+                const v1_1 = get('inp-1-1'); const v1_2 = get('inp-1-2');
+                const v2_1 = get('inp-2-1'); const v2_2 = get('inp-2-2');
+                const v2_2_1 = get('inp-2-2-1'); const v2_2_2 = get('inp-2-2-2'); const v2_2_3 = get('inp-2-2-3');
+                const v2_3 = get('inp-2-3');
+                const getSum = (cls) => Array.from(document.querySelectorAll(cls)).reduce((a,b) => a + (parseInt(b.value)||0), 0);
+                const scoreSum = getSum('.cand-score');
+
+                if(!isValid) {
+                    if(v1_2 > v1_1) addErr("1.2 มากกว่า 1.1");
+                    if(v1_2 !== v2_2) addErr("1.2 ไม่เท่ากับ 2.2");
+                    if(v2_2_1+v2_2_2+v2_2_3 !== v2_2) addErr("ดี+เสีย+โน ไม่เท่ากับ 2.2");
+                    if(v2_2+v2_3 !== v2_1) addErr("2.2+2.3 ไม่เท่ากับ 2.1");
+                    if(scoreSum !== v2_2_1) addErr("คะแนนรวม ไม่เท่ากับ 2.2.1");
+                }
+
+                listHtml = `
+                    <div class="sum-head">ส่วนที่ 1 : ผู้มีสิทธิ</div>
+                    <div class="sum-row"><span class="sum-label">1.1 ตามบัญชีรายชื่อ</span><span class="sum-val">${v1_1}</span></div>
+                    <div class="sum-row"><span class="sum-label">1.2 ผู้แสดงตน</span><span class="sum-val">${v1_2}</span></div>
+                    
+                    <div class="sum-head">ส่วนที่ 2 : บัตรเลือกตั้ง</div>
+                    <div class="sum-row"><span class="sum-label">2.1 บัตรจัดสรร</span><span class="sum-val">${v2_1}</span></div>
+                    <div class="sum-row"><span class="sum-label">2.2 บัตรที่ใช้</span><span class="sum-val">${v2_2}</span></div>
+                    <div class="sum-row sum-sub"><span class="sum-label">2.2.1 บัตรดี (คะแนน)</span><span class="sum-val">${v2_2_1}</span></div>
+                    <div class="sum-row sum-sub"><span class="sum-label">2.2.2 บัตรเสีย</span><span class="sum-val">${v2_2_2}</span></div>
+                    <div class="sum-row sum-sub"><span class="sum-label">2.2.3 ไม่เลือกใคร</span><span class="sum-val">${v2_2_3}</span></div>
+                    <div class="sum-row"><span class="sum-label">2.3 บัตรเหลือ</span><span class="sum-val">${v2_3}</span></div>
+
+                    <div class="sum-head">ส่วนที่ 3 : คะแนนผู้สมัคร</div>
+                `;
+
+                document.querySelectorAll('.cand-score').forEach((inp, idx) => {
+                    const s = parseInt(inp.value) || 0;
+                    let label = `เบอร์ ${idx+1}`;
+                    if (currentMode === 'party') {
+                        if (s > 0) {
+                            label += ` ${partyList[idx]}`;
+                            listHtml += `<div class="sum-row sum-sub"><span class="sum-label text-xs">${label}</span><span class="sum-val">${s}</span></div>`;
+                        }
+                    } else {
+                        listHtml += `<div class="sum-row sum-sub"><span class="sum-label">${label}</span><span class="sum-val">${s}</span></div>`;
+                    }
+                });
                 
-                <div class="sum-head">ส่วนที่ 2 : บัตรเลือกตั้ง</div>
-                <div class="sum-row"><span class="sum-label">2.1 บัตรจัดสรร</span><span class="sum-val">${v2_1}</span></div>
-                <div class="sum-row"><span class="sum-label">2.2 บัตรที่ใช้</span><span class="sum-val">${v2_2}</span></div>
-                <div class="sum-row sum-sub"><span class="sum-label">2.2.1 บัตรดี (คะแนน)</span><span class="sum-val">${v2_2_1}</span></div>
-                <div class="sum-row sum-sub"><span class="sum-label">2.2.2 บัตรเสีย</span><span class="sum-val">${v2_2_2}</span></div>
-                <div class="sum-row sum-sub"><span class="sum-label">2.2.3 ไม่เลือกใคร</span><span class="sum-val">${v2_2_3}</span></div>
-                <div class="sum-row"><span class="sum-label">2.3 บัตรเหลือ</span><span class="sum-val">${v2_3}</span></div>
+                if(currentMode === 'party' && scoreSum === 0) {
+                     listHtml += `<div class="text-center text-xs text-gray-400 py-2">- ยังไม่มีคะแนน -</div>`;
+                }
 
-                <div class="sum-head">ส่วนที่ 3 : คะแนนผู้สมัคร</div>
-            `;
-
-            document.querySelectorAll('.cand-score').forEach((inp, idx) => {
-                const s = parseInt(inp.value) || 0;
-                listHtml += `<div class="sum-row sum-sub"><span class="sum-label">เบอร์ ${idx+1}</span><span class="sum-val">${s}</span></div>`;
-            });
-
-            listHtml += `
-                <div class="sum-row mt-2 pt-2 border-t border-gray-400 bg-yellow-50">
-                    <span class="sum-label font-bold text-black">3. รวมคะแนนทั้งสิ้น</span>
-                    <span class="sum-val text-indigo-700 font-black text-lg">${scoreSum}</span>
-                </div>
-            `;
+                listHtml += `
+                    <div class="sum-row mt-2 pt-2 border-t border-gray-400 bg-yellow-50">
+                        <span class="sum-label font-bold text-black">3. รวมคะแนนทั้งสิ้น</span>
+                        <span class="sum-val text-indigo-700 font-black text-lg">${scoreSum}</span>
+                    </div>
+                `;
+            }
 
             document.getElementById('slip-content-list').innerHTML = listHtml;
             document.getElementById('capture-overlay').classList.remove('hidden');
@@ -525,5 +833,3 @@
     </script>
 </body>
 </html>
-
-
