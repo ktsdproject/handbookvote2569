@@ -576,18 +576,13 @@
                 const s = parseInt(inp.value) || 0;
                 let label = `เบอร์ ${idx+1}`;
                 if (currentMode === 'gov') {
-                    if (s > 0) {
-                        label += ` ${govCandidates[idx]}`;
-                        listHtml += `<div class="sum-row sum-sub"><span class="sum-label text-xs truncate max-w-[200px]">${label}</span><span class="sum-val">${s}</span></div>`;
-                    }
+                    // ลบ if (s > 0) ออก เพื่อให้แสดงครบทุกเบอร์แม้ได้คะแนน 0
+                    label += ` ${govCandidates[idx]}`;
+                    listHtml += `<div class="sum-row sum-sub"><span class="sum-label text-xs truncate max-w-[200px]">${label}</span><span class="sum-val">${s}</span></div>`;
                 } else {
                     listHtml += `<div class="sum-row sum-sub"><span class="sum-label">${label}</span><span class="sum-val">${s}</span></div>`;
                 }
             });
-            
-            if(currentMode === 'gov' && scoreSum === 0) {
-                 listHtml += `<div class="text-center text-xs text-gray-400 py-2">- ยังไม่มีคะแนน -</div>`;
-            }
 
             listHtml += `
                 <div class="sum-row mt-2 pt-2 border-t border-gray-400 bg-yellow-50">
